@@ -18,7 +18,17 @@ import Badge from '@mui/material/Badge';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import SvgIcon from '@mui/material/SvgIcon';
 
-const pages = ['Advanced Search', 'Recommendation Quiz', 'Find Similar'];
+import { Outlet, Link } from "react-router-dom";
+
+
+const pages = [
+  {text: 'Advanced Search', href: '/search'}, 
+  {text: 'Recommendation Quiz', href: '/quiz'}, 
+  {text: 'Find Similar', href: '/similar'},
+];
+
+
+//const pages = ["search", "quiz", "similar"];
 
 const Nav = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -53,7 +63,6 @@ const Nav = () => {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -64,7 +73,7 @@ const Nav = () => {
               textDecoration: 'none',
             }}
           >
-            FIND PADDLE
+          <Link to='/' className="nav-link-white"> FIND PADDLE</Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -97,12 +106,15 @@ const Nav = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                  <MenuItem key={page.text} onClick={handleCloseNavMenu}>
+                    <Link to={page.href} className='nav-link-black'>
+                      <Typography textAlign="center">{page.text}</Typography>
+                    </Link>
+                  </MenuItem>
               ))}
             </Menu>
           </Box>
+
           <SvgIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}>
           <svg width="348" height="726" viewBox="0 0 348 726" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="3.5" y="467.5" width="464" height="341" rx="93.5" transform="rotate(-90 3.5 467.5)" stroke="white" stroke-width="7"/>
@@ -133,16 +145,17 @@ const Nav = () => {
               textDecoration: 'none',
             }}
           >
-            FIND PADDLE
+            <Link to='/' className="nav-link-white"> FIND PADDLE</Link>
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                key={page}
+                key={page.text}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Link to={page.href} className='nav-link-white'>{page.text}</Link>
               </Button>
             ))}
           </Box>

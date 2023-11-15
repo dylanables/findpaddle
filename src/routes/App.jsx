@@ -1,15 +1,15 @@
-import Nav from './Navigation/Nav';
-import Products from './Products/Products';
-import Sidebar from './Sidebar/Sidebar';
-import './index.css';
+import Nav from '../Navigation/Nav';
+import Products from '../Products/Products';
+import Sidebar from '../Sidebar/Sidebar';
+import '../index.css';
 import { useState } from 'react';
-import paddles from './db/data';
-import PaddleCard from './components/PaddleCard/PaddleCard';
+import paddles from '../db/data';
+import PaddleCard from '../components/PaddleCard/PaddleCard';
 
 function App() {
 
   const[brand, setBrand] = useState([]);
-  const[shape, setShape] = useState([]);
+  const[shape, setShape] = useState("");
   const[surface, setSurface] = useState([]);
   const[core, setCore] = useState([10,20]);
   const[weight, setWeight] = useState([6,10]);
@@ -73,6 +73,11 @@ function App() {
     }
   };
 
+  const handleButtonFilter = (shapeClicked) => {
+    console.log('shapeClicked',shapeClicked)
+    setShape(shapeClicked);
+  };
+
   console.log('brand', brand)
   console.log('shape', shape)
   console.log('surface', surface)
@@ -134,6 +139,7 @@ function App() {
         handle={handle} 
         handleSelectFilter={handleSelectFilter} 
         handleRangeFilter={handleRangeFilter} 
+        handleButtonFilter={handleButtonFilter}
         clear={clear}
       />
       <Products results={results} />

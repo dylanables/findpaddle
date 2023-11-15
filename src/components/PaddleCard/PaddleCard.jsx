@@ -1,10 +1,19 @@
 import './PaddleCard.css';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import Button from '@mui/material/Button';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+
 
 function PaddleCard({key, img, title, brand, color, surface, coreThickness, handleLength, paddleWeight, paddleShape, aff_links}) {
   const affs = [];
   aff_links.map((aff) => {
-    affs.push(<a href={aff.link} target="_blank"><button>Buy @ {aff.retailer}</button></a>);
+    affs.push(
+      <a href={aff.link} target="_blank" rel="noreferrer">
+        <Button variant="contained" endIcon={<OpenInNewIcon />}>
+          Buy @ {aff.retailer}
+        </Button>
+      </a>
+    );
   });
     
   

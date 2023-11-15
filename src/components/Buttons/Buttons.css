@@ -1,13 +1,16 @@
 .shape-btn {
-    display: block;
-    text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .shape-icon {
     margin-top: -10px;
     margin-bottom:0px;
+    
 }
 
 .shape-title {
     margin-top:-20px;
+    text-transform: capitalize;
 }

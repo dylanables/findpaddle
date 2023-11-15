@@ -13,3 +13,11 @@ a {
 li {
     list-style: none;
 }
+
+.hero {
+    margin-top: 90px;
+}
+
+.body-container {
+    padding: 50px;
+}

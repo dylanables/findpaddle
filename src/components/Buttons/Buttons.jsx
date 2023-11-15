@@ -4,7 +4,12 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import Box from '@mui/material/Box';
 import './Buttons.css';
 
-function Buttons() {
+function Buttons({sel, handleButtonFilter}) {
+
+  const isActive = (val) => {
+    return ((val===sel) ? 'contained' : 'outlined');
+  }
+
   return (
     <Box
       sx={{
@@ -17,7 +22,7 @@ function Buttons() {
       }}
     >
       <ButtonGroup variant="outlined" aria-label="outlined button group">
-        <Button className='shape-btn'>
+        <Button className='shape-btn' variant={isActive('Standard')} onClick={()=>{handleButtonFilter('Standard')}}>
           <div className='shape-icon'>
             <svg width="30" height="100" viewBox="0 0 348 726" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_49_29)">
@@ -40,7 +45,7 @@ function Buttons() {
           </div>
           <div className='shape-title'>Standard</div>
         </Button>
-        <Button className='shape-btn'>
+        <Button className='shape-btn' variant={isActive('Square')} onClick={()=>{handleButtonFilter('Square')}}>
           <div className='shape-icon'>
             <svg width="30" height="100" viewBox="0 0 348 726" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_49_2)">
@@ -63,11 +68,11 @@ function Buttons() {
           </div>
           <div className='shape-title'>Square</div>
         </Button>
-        <Button className='shape-btn'>
+        <Button className='shape-btn' variant={isActive('Elongated')} onClick={()=>{handleButtonFilter('Elongated')}}>
           <div className='shape-icon'>
             <svg width="30" height="100" viewBox="0 0 348 726" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_47_4)">
-            <rect width="726" height="348" transform="translate(0 726) rotate(-90)" fill="white"/>
+            <rect width="726" height="348" transform="translate(0 726) rotate(-90)"/>
             <rect x="3.5" y="467.5" width="464" height="341" rx="93.5" transform="rotate(-90 3.5 467.5)" stroke="black" stroke-width="7"/>
             <path d="M73 464C83.2222 468.228 119 485.5 142 529" stroke="black" stroke-width="7"/>
             <path d="M275 464C264.778 468.228 229 485.5 206 529" stroke="black" stroke-width="7"/>
