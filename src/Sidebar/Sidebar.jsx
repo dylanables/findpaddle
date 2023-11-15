@@ -6,11 +6,14 @@ import Weight from './Weight/Weight'
 import Handle from './Handle/Handle'
 import Color from './Color/Color'
 import './Sidebar.css'
+import Button from '@mui/material/Button';
 
-const Sidebar = ({brand, shape, surface, core, weight, handle, handleSelectFilter, handleRangeFilter}) => {
+const Sidebar = ({brand, shape, surface, core, weight, handle, handleSelectFilter, handleRangeFilter, clear}) => {
   return (
     <section className='sidebar'>
-
+      <div className='sidebar-container'>
+        <h2 className='sidebar-title'>Paddle Filters</h2>
+        <Button variant="text" onClick={clear}>Clear All</Button>
         <Brand brand={brand} handleSelectFilter={handleSelectFilter} />
         <Shape shape={shape} handleSelectFilter={handleSelectFilter} />
         <Surface surface={surface} handleSelectFilter={handleSelectFilter} />
@@ -19,7 +22,7 @@ const Sidebar = ({brand, shape, surface, core, weight, handle, handleSelectFilte
         <Handle handle={handle} handleRangeFilter={handleRangeFilter} />
         <Color />
 
-
+      </div>
     </section>
   )
 }

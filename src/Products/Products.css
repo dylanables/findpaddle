@@ -1,7 +1,7 @@
 .results {
     display: block;
     padding-left: 25rem;
-    padding-top: 2rem;
+    padding-top: 90px;
     z-index: -2;
     background-color: #f0f0f0;
 }
@@ -9,38 +9,7 @@
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    padding-top: 2rem;
-}
-
-.card {
-    margin: 10px 20px;
-    border: 2px solid #ededed;
-    padding: 15px;
-    cursor: pointer;
-    background-color: #ffffff;
-    width: 100%;
-    display: flex;
-}
-
-.card-image {
-    width: 13rem;
-    align-items: center;
-    justify-content: center;
-}
-
-.card-title {
-    margin-bottom: 1rem;
-    text-wrap: wrap;
-}
-
-.card-price {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.heart-icon {
-    color: #535353;
+    padding-top: 1rem;
 }
 
 @media screen and (max-width: 700px) {
@@ -52,11 +21,4 @@
     }
     .sidebar card {float: middle;}
     div.content {margin-left: 0;}
-  }
-  
-  @media screen and (max-width: 400px) {
-    .sidebar a {
-      text-align: center;
-      float: none;
-    }
   }

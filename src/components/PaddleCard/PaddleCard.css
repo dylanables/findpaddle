@@ -1,3 +1,35 @@
 .links button {
     display: block;
 }
+
+.card {
+    margin: 10px;
+    border: 2px solid #ededed;
+    padding: 15px;
+    cursor: pointer;
+    background-color: #ffffff;
+    width: 100%;
+    display: flex;
+}
+
+.card-image {
+    width: 13rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-title {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-wrap: wrap;
+}
+
+.card-price {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.heart-icon {
+    color: #535353;
+}

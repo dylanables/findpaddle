@@ -1,20 +1,26 @@
+import MultiSelect from "../../components/MultiSelect/MultiSelect";
+
 const Surface = ({surface, handleSelectFilter}) => {
-  const keyName = "surface";
+  const keyName = 'surface';
   const vals = [
-    'Carbon Fiber',
-    'Graphite',
-    'Fiberglass',
-    'Composite',
+    { value: 'Carbon Fiber', label: 'Carbon Fiber' },
+    { value: 'Graphite', label: 'Graphite' },
+    { value: 'Fiberglass', label: 'Fiberglass' },
+    { value: 'Composite', label: 'Composite' },
   ];
 
+  let curr_surface_vals = []
+  surface.map((item)=>{
+    const surface_object = vals.find(o => o.value === item);
+    curr_surface_vals.push(surface_object);
+  });
+
+  console.log('curr_surface_vals', curr_surface_vals);
+
   return (
-    <div>
-      <select multiple onChange={(e) => handleSelectFilter(e, keyName)}>
-        <option value="Carbon Fiber">Carbon Fiber</option>
-        <option value="Graphite">Graphite</option>
-        <option value="Fiberglass">Fiberglass</option>
-        <option value="Composite">Composite</option>
-      </select>
+    <div className='filter'>
+      Surface:
+      <MultiSelect keyName={keyName} sel={curr_surface_vals} vals={vals} handleSelectFilter={handleSelectFilter} />
     </div>
   )
 }

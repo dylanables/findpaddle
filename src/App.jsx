@@ -17,10 +17,31 @@ function App() {
   const[color, setColor] = useState([]);
   const[price, setPrice] = useState([0,1000]);
 
+  function clear() {
+    setBrand([]);
+    setShape([]);
+    setSurface([]);
+    setCore([10,20]);
+    setWeight([6,10]);
+    setHandle([4,7]);
+    setColor([]);
+    setPrice([0,1000]);
+  };
+
   const handleSelectFilter = (event, keyName) => {
-    const values = Array.from(event.target.selectedOptions, option => option.value);
+    //for react-select
+    let values = [];
+    event.map((item)=>{
+      values.push(item.value);
+    });
+
+    console.log(values)
+
+
+    //for vanilla html <select>
+    //const values = Array.from(event.target.selectedOptions, option => option.value);
     // Or this way
-    // const values = [...event.target.selectedOptions].map(opt => opt.value)
+    //const values = [...event.target.selectedOptions].map(opt => opt.value)
 
     if (keyName === 'brand'){
       setBrand(values);
@@ -70,13 +91,15 @@ function App() {
 
     filteredPaddles = filteredPaddles.filter(
       (paddle) =>
-      (brand.length < 1 || paddle.brand.includes(brand)) &&
-      (shape.length < 1 || paddle.paddleShape.includes(shape)) &&
-      (surface.length < 1 || paddle.surface.includes(surface)) && 
+      (brand.length < 1 || brand.includes(paddle.brand) || paddle.brand.includes(brand)) &&
+      (shape.length < 1 || shape.includes(paddle.paddleShape) || paddle.paddleShape.includes(shape)) &&
+      (surface.length < 1 || surface.includes(paddle.surface) || (paddle.surface).includes(surface)) && 
       (parseFloat(paddle.coreThickness) >= core[0] && parseFloat(paddle.coreThickness) <= core[1]) &&
       (parseFloat(paddle.paddleWeight) >= weight[0] && parseFloat(paddle.paddleWeight) <= weight[1]) &&
       (parseFloat(paddle.handleLength) >= handle[0] && parseFloat(paddle.handleLength) <= handle[1])
     );
+
+
 
     return filteredPaddles.map(({title, img, brand, color, surface, coreThickness, handleLength, paddleWeight, paddleShape, aff_links}) => (
       <PaddleCard 
@@ -102,7 +125,17 @@ function App() {
   return (
     <>
       <Nav />
-      <Sidebar brand={brand} shape={shape} surface={surface} core={core} weight={weight} handle={handle} handleSelectFilter={handleSelectFilter} handleRangeFilter={handleRangeFilter}/>
+      <Sidebar 
+        brand={brand} 
+        shape={shape} 
+        surface={surface} 
+        core={core} 
+        weight={weight} 
+        handle={handle} 
+        handleSelectFilter={handleSelectFilter} 
+        handleRangeFilter={handleRangeFilter} 
+        clear={clear}
+      />
       <Products results={results} />
     </>
   );

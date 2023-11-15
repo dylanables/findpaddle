@@ -6,10 +6,21 @@ const Weight = ({weight, handleRangeFilter}) => {
   const units = "oz";
   const keyName = "weight";
 
+  const marks = [
+    {
+      value: 6,
+      label: '6 oz',
+    },
+    {
+      value: 10,
+      label: '10 oz',
+    },
+  ];
+
   return (
-    <div>
-      Weight:
-      <RangeSlider sel={weight} keyName={keyName} min={min} max={max} units={units} handleRangeFilter={handleRangeFilter} />
+    <div className='filter'>
+      Weight (oz):
+      <RangeSlider sel={weight} keyName={keyName} min={min} max={max} units={units} marks={marks} handleRangeFilter={handleRangeFilter} />
     </div>
   )
 }

@@ -3,29 +3,31 @@ import MultiSelect from "../../components/MultiSelect/MultiSelect";
 const Brand = ({brand, handleSelectFilter}) => {
   const keyName = 'brand';
   const vals = [
-    'JOOLA',
-    'Selkirk',
-    'Paddletek',
-    'Vatic Pro',
-    'VANGUARD',
-    'CRBN',
-    'ProKennex',
-    'Engage',
-    'Electrum',
-    'Volair',
-    'Gearbox',
-    'Six Zero',
+    { value: 'JOOLA', label: 'JOOLA' },
+    { value: 'Selkirk', label: 'Selkirk' },
+    { value: 'Paddletek', label: 'Paddletek' },
+    { value: 'Vatic Pro', label: 'Vatic Pro' },
+    { value: 'CRBN', label: 'CRBN' },
+    { value: 'ProKennex', label: 'ProKennex' },
+    { value: 'Engage', label: 'Engage' },
+    { value: 'Electrum', label: 'Electrum' },
+    { value: 'Volair', label: 'Volair' },
+    { value: 'Gearbox', label: 'Gearbox' },
+    { value: 'Six Zero', label: 'Six Zero' },
   ];
 
-  return (
-    <div>
-      <select multiple onChange={(e) => handleSelectFilter(e, keyName)}>
-        <option value="JOOLA">JOOLA</option>
-        <option value="Selkirk">Selkirk</option>
-        <option value="Paddletek">Paddletek</option>
-      </select>
+  let curr_brand_vals = []
+  brand.map((item)=>{
+    const brand_object = vals.find(o => o.value === item);
+    curr_brand_vals.push(brand_object);
+  });
 
-      <MultiSelect handleSelectFilter={handleSelectFilter} />
+  console.log('curr_brand_vals', curr_brand_vals);
+
+  return (
+    <div className='filter'>
+      Brand:
+      <MultiSelect keyName={keyName} sel={curr_brand_vals} vals={vals} handleSelectFilter={handleSelectFilter} />
     </div>
   )
 }

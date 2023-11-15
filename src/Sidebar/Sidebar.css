@@ -19,6 +19,12 @@
 
 .sidebar-container {
   width: 100%;
+  margin-top: 80px;
+  padding: 20px;
+}
+
+.sidebar-title {
+
 }
 
 .logo-container {
@@ -34,28 +40,12 @@
   color:#c9c9c9;
 }
 
-.logo-container h1 {
-  text-align: center;
-}
-
-.paddle-guide-bottom-container {
-  position: relative;
-  height: 100%;
-  width: 100%;
-}
-
-.paddle-guide-bottom {
-  position: absolute;
-  bottom:0;
-  margin-top:10px;
-  margin-bottom:10px;
-  width: 100%;
-  white-space: nowrap;
-  color: #42bff5;
-}
-
 .paddle-guide-bottom a {
   color: #42bff5; 
+}
+
+.filter {
+  margin-top: 1em;
 }
 
 @media screen and (max-width: 700px) {

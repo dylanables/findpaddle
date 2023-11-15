@@ -6,10 +6,21 @@ const Core = ({core, handleRangeFilter}) => {
   const units = "mm";
   const keyName = "core";
 
+  const marks = [
+    {
+      value: 10,
+      label: '10 mm',
+    },
+    {
+      value: 20,
+      label: '20 mm',
+    },
+  ];
+
   return (
-    <div>
-      Core Thickness:
-      <RangeSlider sel={core} keyName={keyName} min={min} max={max} units={units} handleRangeFilter={handleRangeFilter} />
+    <div className='filter'>
+      Core Thickness (mm):
+      <RangeSlider sel={core} keyName={keyName} min={min} max={max} units={units} marks={marks} handleRangeFilter={handleRangeFilter} />
     </div>
   )
 }

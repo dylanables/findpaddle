@@ -5,7 +5,7 @@ const Products = ({results}) => {
 
   return (
     <div className='results'>
-    <h2>Found {results.length} result{results.length !== 1 ? "s" : ""}...</h2>
+    <p>Found {results.length} result{results.length !== 1 ? "s" : ""}...</p>
 
     <section className='card-container'>
       {results}

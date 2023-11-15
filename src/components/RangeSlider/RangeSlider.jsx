@@ -2,10 +2,10 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 
-function RangeSlider({sel, keyName, min, max, units, handleRangeFilter}) {
+function RangeSlider({sel, keyName, min, max, units, marks, handleRangeFilter}) {
 
   function valuetext(value) {
-    return `${value}${units}`;
+    return (value + units);
   }
 
   return (
@@ -18,6 +18,7 @@ function RangeSlider({sel, keyName, min, max, units, handleRangeFilter}) {
         getAriaValueText={valuetext}
         min={min}
         max={max}
+        marks={marks}
       />
     </Box>
   );

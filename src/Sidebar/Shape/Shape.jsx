@@ -2,7 +2,8 @@ import Buttons from "../../components/Buttons/Buttons"
 
 const Shape = () => {
   return (
-    <div>
+    <div className='filter'>
+      Shape:
       <Buttons />
     </div>
   )

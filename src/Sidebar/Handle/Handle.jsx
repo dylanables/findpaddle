@@ -6,10 +6,21 @@ const Handle = ({handle, handleRangeFilter}) => {
   const units = "in";
   const keyName = "handle";
 
+  const marks = [
+    {
+      value: 4,
+      label: '4 in',
+    },
+    {
+      value: 7,
+      label: '7 in',
+    },
+  ];
+
   return (
-    <div>
-      Handle Length:
-      <RangeSlider sel={handle} keyName={keyName} min={min} max={max} units={units} handleRangeFilter={handleRangeFilter} />
+    <div className='filter'>
+      Handle Length (in):
+      <RangeSlider sel={handle} keyName={keyName} min={min} max={max} units={units} marks={marks} handleRangeFilter={handleRangeFilter} />
     </div>
   )
 }
