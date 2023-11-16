@@ -10,6 +10,7 @@
     background-color: #ffffff;
     width: 100%;
     display: flex;
+    overflow: auto;
 }
 
 .card-image {
@@ -32,4 +33,13 @@
 
 .heart-icon {
     color: #535353;
+    float: right;
+}
+
+.card-info {
+    float:left;
+}
+
+.links {
+    float: right;
 }

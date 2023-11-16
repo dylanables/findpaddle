@@ -1,0 +1,23 @@
+.currQuestion {
+    font-weight: bold;
+}
+
+.btns {
+    width: 100%;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    margin-right: 6px;
+    background: transparent;
+    border: none;
+    border: 0.6px solid #ccc;
+    border-radius: 5px;
+    color: #323323;
+    cursor: pointer;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.activeBtn {
+    border-color: #2196F3;
+}

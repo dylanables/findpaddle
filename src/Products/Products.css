@@ -1,9 +1,16 @@
 .results {
     display: block;
-    padding-left: 25rem;
     padding-top: 90px;
     z-index: -2;
     background-color: #f0f0f0;
+}
+
+.search {
+  padding-left: 25rem;
+}
+
+.quiz {
+  padding-left: 0;
 }
 
 .card-container {
