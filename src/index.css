@@ -21,3 +21,37 @@ li {
 .body-container {
     padding: 50px;
 }
+
+.center-items {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.tool {
+    width: 300px;
+    height: 300px;
+    padding: 30px;
+    text-align: center;
+    margin: 50px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.why-img-container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.why-img {
+    height: 200px;
+    width: 200px;
+}
