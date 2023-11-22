@@ -127,6 +127,8 @@ function App() {
   const results = filterList(paddles, brand,shape,surface);
   console.log("results", results);
 
+  const tool = "search";
+
   return (
     <>
       <Nav />
@@ -142,7 +144,7 @@ function App() {
         handleButtonFilter={handleButtonFilter}
         clear={clear}
       />
-      <Products results={results} />
+      <Products results={results} tool={tool} />
     </>
   );
 }

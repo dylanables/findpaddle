@@ -5,6 +5,11 @@
     background-color: #f0f0f0;
 }
 
+#quiz-results-heading {
+  display: none;
+
+}
+
 .search {
   padding-left: 25rem;
 }

@@ -8,11 +8,13 @@ import paddles from '../db/data';
 import PaddleCard from '../components/PaddleCard/PaddleCard';
 import questions from '../db/questions';
 
-let initialCategories = ["","","","","","","","",""];
+let initialCategories = ["","","","","","","","","",""];
 
 function Quiz() {
   const [selectedCategory, setSelectedCategory] = useState(initialCategories);
   const [currentQuestion, setCurrentQuestion] = useState(0);
+
+  console.log("paddleweight json", paddles[10].paddleWeight)
 
   //quiz button answer filter
   const handleQuizClick = event => {
@@ -31,7 +33,8 @@ function Quiz() {
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
-      alert("You have reached the end of the quiz!");
+      document.getElementById("quiz").scrollIntoView();
+      document.getElementById("quiz-results-heading").style.display = 'block';
     }
   }
 
@@ -42,6 +45,38 @@ function Quiz() {
     }
   }
 
+  function meetsOneOfCriteria(criteriaArr, x, operation) {
+    console.log("criteriaArr", criteriaArr)
+    console.log("x", x)
+    console.log("operation", operation)
+
+    let meets = false;
+
+    if (operation === 'min') {
+      criteriaArr.map((criteria) => {
+        if (parseFloat(criteria) >= parseFloat(x)) {
+          meets = true;
+        }
+      });
+    }else if (operation === 'max') {
+      criteriaArr.map((criteria) => {
+        if (parseFloat(criteria) <= parseFloat(x)) {
+          console.log("work ", parseFloat(criteria), " <= ", x)
+          console.log("meets", true)
+          meets = true;
+        }
+      });
+    } else if (operation === 'equal') {
+      criteriaArr.map((criteria) => {
+        if (criteria === x) {
+          meets = true;
+        }
+      });
+    }
+    console.log("meets", meets)
+    return meets;
+  }
+
   function filteredData(paddles, selected) {
     let filteredProducts = [];
     paddles.map((a,e)=>(
@@ -50,6 +85,15 @@ function Quiz() {
 
     //selected filter
     var skillAnswer = selected[0];
+    var skillPaddleWeightMax = 20;
+    var skillCoreThicknessMin = 0;
+    var skillPaddleShapes = ["Elongated", "Wide Body", "Standard", "Square"]
+    if (skillAnswer === "Beginner") {
+      skillPaddleWeightMax = 8.0;
+      skillCoreThicknessMin = 15;
+      skillPaddleShapes = ["Elongated", "Wide Body"]
+    }
+
     var playStyleAnswer = selected[1];
     var budgetAnswer = parseInt(selected[2],10);
     var colorAnswer = selected[3];
@@ -61,7 +105,7 @@ function Quiz() {
       coreThicknessAnswerMin = 0;
       coreThicknessAnswerMax = 12;
     }
-    if (coreThicknessAnswer === "Medium") {
+    if (coreThicknessAnswer === "Standard") {
       coreThicknessAnswerMin = 13;
       coreThicknessAnswerMax = 15;
     }
@@ -87,7 +131,7 @@ function Quiz() {
     var paddleWeightAnswer = selected[7];
     var paddleWeightAnswerMin = 0;
     var paddleWeightAnswerMax = 100;
-    if (paddleWeightAnswer === "Short") {
+    if (paddleWeightAnswer === "Light") {
       paddleWeightAnswerMin = 0;
       paddleWeightAnswerMax = 6.5;
     }
@@ -95,24 +139,27 @@ function Quiz() {
       paddleWeightAnswerMin = 6.5;
       paddleWeightAnswerMax = 8.5;
     }
-    if (paddleWeightAnswer === "Long") {
+    if (paddleWeightAnswer === "Heavy") {
       paddleWeightAnswerMin = 8.5;
       paddleWeightAnswerMax = 100;
     }
     var surfaceAnswer = selected[8];
+    var injuryAnswer = selected[9];
+    var injuryPaddleWeightMin = 7.6;
+    var injuryPaddleWeightMax = 8.4;
 
-    if (skillAnswer !== '' || playStyleAnswer !== '' || !(isNaN(budgetAnswer)) || colorAnswer !== '' || brandAnswer !== '' || coreThicknessAnswer !== '' || handleLengthAnswer !== '' || paddleWeightAnswer !== '' || surfaceAnswer !== '') {
+    if (skillAnswer !== '' || playStyleAnswer !== '' || !(isNaN(budgetAnswer)) || colorAnswer !== '' || brandAnswer !== '' || coreThicknessAnswer !== '' || handleLengthAnswer !== '' || paddleWeightAnswer !== '' || surfaceAnswer !== '' || injuryAnswer !== '') {
       filteredProducts = filteredProducts.filter((
-        {color, company, newPrice, skill, playStyle, coreThickness, handleLength, paddleWeight, surface}) => 
-        (skillAnswer === '' || skill === skillAnswer) && 
-        (colorAnswer === '' || color === colorAnswer) && 
-        (brandAnswer === '' || company === brandAnswer) && 
-        (isNaN(budgetAnswer) || parseInt(newPrice, 10) <= budgetAnswer) && 
+        {color, bestPrice, playStyle, coreThickness, handleLength, paddleWeight, surface, paddleShape}) => 
+        (skillAnswer === '' || (meetsOneOfCriteria(paddleWeight, skillPaddleWeightMax, "max") && meetsOneOfCriteria(coreThickness, skillCoreThicknessMin, "min") && meetsOneOfCriteria(skillPaddleShapes, paddleShape, "equal"))) && 
+        (colorAnswer === '' || meetsOneOfCriteria(color, colorAnswer, "equal")) && 
+        (isNaN(budgetAnswer) || parseInt(bestPrice, 10) <= budgetAnswer) && 
         (playStyleAnswer === '' || playStyle === playStyleAnswer) && 
         (coreThicknessAnswer === '' || (coreThickness >= coreThicknessAnswerMin && coreThickness <= coreThicknessAnswerMax)) && 
         (handleLengthAnswer === '' || (handleLength >= handleLengthAnswerMin && handleLength <= handleLengthAnswerMax)) && 
         (paddleWeightAnswer === '' || (paddleWeight >= paddleWeightAnswerMin && paddleWeight <= paddleWeightAnswerMax)) &&
-        (surfaceAnswer === '' || surface === surfaceAnswer));
+        (surfaceAnswer === '' || surface === surfaceAnswer) && 
+        (injuryAnswer === '' || injuryAnswer === "No" || (meetsOneOfCriteria(paddleWeight, injuryPaddleWeightMin, "min") && meetsOneOfCriteria(paddleWeight, injuryPaddleWeightMax, "max"))));
 
         for (let i = 0, len = filteredProducts.length; i < len; ++i) {
           filteredProducts[i].why_chosen = [];
@@ -130,15 +177,15 @@ function Quiz() {
 
     }
 
-    return filteredProducts.map(({img, title, star, reviews, prevPrice, newPrice, aff_links, why_chosen, color, surface, skill, playStyle, coreThickness}) => (
+    return filteredProducts.map(({img, title, star, reviews, avgPrice, bestPrice, aff_links, why_chosen, color, surface, skill, playStyle, coreThickness, paddleWeight, handleLength, paddleShape}) => (
       <PaddleCard 
       key={Math.random()}
       img={img}
       title={title}
       star={star}
       reviews={reviews}
-      prevPrice={prevPrice}
-      newPrice={newPrice}
+      avgPrice={avgPrice}
+      bestPrice={bestPrice}
       aff_links={aff_links}
       why_chosen={why_chosen}
       color={color}
@@ -146,6 +193,9 @@ function Quiz() {
       skill={skill}
       playStyle={playStyle}
       coreThickness={coreThickness}
+      paddleWeight={paddleWeight}
+      handleLength={handleLength}
+      paddleShape={paddleShape}
       />
     ))
 

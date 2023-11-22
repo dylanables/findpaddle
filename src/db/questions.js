@@ -23,7 +23,8 @@ const data = [
     answerOptions: [
         { answerText: "$50", answerValue: "50" },
         { answerText: "$100", answerValue: "100" },
-        { answerText: "$150+", answerValue: "150" }
+        { answerText: "$200", answerValue: "200" },
+        { answerText: "No budget", answerValue: "" },
     ],
   },
   {
@@ -87,6 +88,14 @@ const data = [
         { answerText: "Graphite", answerValue: "Graphite" },
         { answerText: "Fiberglass", answerValue: "Fiberglass" },
         { answerText: "No preference", answerValue: "" },
+    ],
+  },
+  {
+    questionText: "Do you have any injury concerns (shoulder, elbow, wrist)?",
+    required: true,
+    answerOptions: [
+        { answerText: "Yes", answerValue: "Yes" },
+        { answerText: "No", answerValue: "No" },
     ],
   },
 ];
