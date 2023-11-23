@@ -1,5 +1,18 @@
-# Find Paddle
-A web app that offers multiple tools to find pickleball paddles. Advanced searching and filtering on paddle attributes, a recommendation engine based on a simple quiz, and a similarity score algorithm to find other paddles similar to another paddle.
+## Find Paddle
+A React web app that offers multiple tools to find pickleball paddles. Advanced searching and filtering on paddle attributes, a recommendation engine based on a simple quiz, and a similarity score algorithm to find other paddles similar to another paddle.
 
-This site was made with love with React.js
+# P0
+Advanced Search Tool
+
+# P1
+Recommendation Quiz Tool
+
+# P2
+Homepage, page routing
+Integrate MongoDB backend
+
+# P3
+Similarity Tool
+Search by name feature on homepage -> individual paddle page
+
 

@@ -10,6 +10,7 @@ import ErrorPage from "./error-page";
 import Paddle from "./routes/Paddle.jsx";
 import Quiz from "./routes/Quiz";
 import Similar from "./routes/Similar";
+import Admin from "./routes/Admin";
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "paddle/:paddleName",
     element: <Paddle />,
+  },
+  {
+    path: "admin",
+    element: <Admin />,
   },
 ]);
 
