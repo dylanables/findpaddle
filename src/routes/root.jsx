@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import QuizIcon from '@mui/icons-material/Quiz';
 import SearchIcon from '@mui/icons-material/Search';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
+import Container from '@mui/material/Container';
 import { Outlet, Link } from "react-router-dom";
 
 
@@ -12,7 +13,7 @@ function Root() {
   return (
     <>
       <Nav />
-      <div className='body-container'>
+      <Container maxWidth="xl">
         <div className='hero'>
           <h1>Find Your Next Pickleball Paddle!</h1>
           <p>All the tools you need discover the best paddle to improve your game and smash the competition! All our tools are easy to use and constantly being updated as new paddles are released, allowing you to save time and money when researching.</p>
@@ -59,7 +60,7 @@ function Root() {
           <p>Enter your email to be notified when we release new tools and occaisonal paddle releases.</p>
           <input type='email' placeholder='Enter your email...' />
         </div>
-      </div>
+      </Container>
       <Footer />
     </>
   );

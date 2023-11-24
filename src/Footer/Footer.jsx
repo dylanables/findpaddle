@@ -2,9 +2,11 @@ import React from 'react';
 import "./Footer.css";
 import { Link } from 'react-router-dom';
 import { Height } from '@mui/icons-material';
+import Container from '@mui/material/Container';
 
 const Footer = () => {
   return (
+  <Container>
     <div className='footer'>
       <div className='top'>
         <div className='item'>
@@ -29,6 +31,7 @@ const Footer = () => {
         </div>
       </div>
     </div>
+  </Container>
   )
 }
 

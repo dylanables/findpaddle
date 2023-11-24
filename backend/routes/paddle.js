@@ -3,7 +3,7 @@ const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin } = requir
 const Paddle = require("../models/Paddle");
 
 //create paddle
-router.post("/", async (req, res)=>{
+router.post("/", verifyTokenAndAdmin, async (req, res)=>{
     const newProduct = new Paddle(req.body);
 
     try {

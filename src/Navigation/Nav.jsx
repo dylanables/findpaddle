@@ -42,7 +42,7 @@ const Nav = () => {
   };
 
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed" style={{ background: '#000' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <SvgIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>

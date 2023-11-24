@@ -1,6 +1,7 @@
 import Nav from '../Navigation/Nav';
 import Products from '../Products/Products';
 import Sidebar from '../Sidebar/Sidebar';
+import Footer from '../Footer/Footer';
 import '../index.css';
 import { useState, useEffect } from 'react';
 //import paddles from '../db/data';
@@ -163,6 +164,7 @@ function App() {
         clear={clear}
       />
       <Products results={results} tool={tool} />
+      <Footer />
     </>
   );
 }
