@@ -20,7 +20,11 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "search",
+    path: "search/:brand",
+    element: <App />,
+  },
+  {
+    path: "search/",
     element: <App />,
   },
   {

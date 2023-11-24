@@ -3,10 +3,11 @@ import Footer from '../Footer/Footer';
 import Products from '../Products/Products';
 import Questions from '../Questions/Questions';
 import '../index.css';
-import React, { useState } from 'react';
-import paddles from '../db/data';
+import React, { useState, useEffect } from 'react';
+//import paddles from '../db/data';
 import PaddleCard from '../components/PaddleCard/PaddleCard';
 import questions from '../db/questions';
+import axios from 'axios';
 
 let initialCategories = ["","","","","","","","","",""];
 
@@ -14,7 +15,19 @@ function Quiz() {
   const [selectedCategory, setSelectedCategory] = useState(initialCategories);
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
-  console.log("paddleweight json", paddles[10].paddleWeight)
+  const[paddles, setPaddles] = useState([]);
+
+  useEffect(()=>{
+    const getPaddles = async ()=>{
+      try {
+        const res = await axios.get("http://localhost:5000/api/paddle");
+        setPaddles(res.data);
+      } catch(err) {
+        console.log(err);
+      }
+    };
+    getPaddles();
+  }, []);
 
   //quiz button answer filter
   const handleQuizClick = event => {
@@ -177,9 +190,9 @@ function Quiz() {
 
     }
 
-    return filteredProducts.map(({img, title, star, reviews, avgPrice, bestPrice, aff_links, why_chosen, color, surface, skill, playStyle, coreThickness, paddleWeight, handleLength, paddleShape}) => (
+    return filteredProducts.map(({_id, img, title, star, reviews, avgPrice, bestPrice, aff_links, why_chosen, color, surface, skill, playStyle, coreThickness, paddleWeight, handleLength, paddleShape}) => (
       <PaddleCard 
-      key={Math.random()}
+      id={_id}
       img={img}
       title={title}
       star={star}

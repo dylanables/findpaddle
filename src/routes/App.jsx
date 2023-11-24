@@ -2,9 +2,11 @@ import Nav from '../Navigation/Nav';
 import Products from '../Products/Products';
 import Sidebar from '../Sidebar/Sidebar';
 import '../index.css';
-import { useState } from 'react';
-import paddles from '../db/data';
+import { useState, useEffect } from 'react';
+//import paddles from '../db/data';
 import PaddleCard from '../components/PaddleCard/PaddleCard';
+import axios from 'axios';
+
 
 function App() {
 
@@ -16,6 +18,20 @@ function App() {
   const[handle, setHandle] = useState([4,7]);
   const[color, setColor] = useState([]);
   const[price, setPrice] = useState([0,1000]);
+
+  const[paddles, setPaddles] = useState([]);
+
+  useEffect(()=>{
+    const getPaddles = async ()=>{
+      try {
+        const res = await axios.get("http://localhost:5000/api/paddle");
+        setPaddles(res.data);
+      } catch(err) {
+        console.log(err);
+      }
+    };
+    getPaddles();
+  }, []);
 
   function clear() {
     setBrand([]);
@@ -106,9 +122,9 @@ function App() {
 
 
 
-    return filteredPaddles.map(({title, img, brand, color, surface, coreThickness, handleLength, paddleWeight, paddleShape, aff_links}) => (
+    return filteredPaddles.map(({_id, title, img, brand, color, surface, coreThickness, handleLength, paddleWeight, paddleShape, playStyle, bestPrice, aff_links}) => (
       <PaddleCard 
-        key={Math.random()} //change
+        id={_id}
         img={img}
         title={title}
         brand={brand}
@@ -118,6 +134,8 @@ function App() {
         handleLength={handleLength}
         paddleWeight={paddleWeight}
         paddleShape={paddleShape}
+        playStyle={playStyle}
+        bestPrice={bestPrice}
         aff_links={aff_links}
       />
     ));

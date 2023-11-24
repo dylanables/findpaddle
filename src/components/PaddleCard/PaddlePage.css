@@ -1,0 +1,37 @@
+.page {
+    margin: 100px 10px 10px 10px;
+    padding: 15px;
+    cursor: pointer;
+    background-color: #ffffff;
+    width: 100%;
+    overflow: auto;
+}
+
+.page-image {
+    width: 25em;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-info {
+}
+
+.page-title {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-wrap: wrap;
+}
+
+.page-price {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.heart-icon {
+    color: #535353;
+}
+
+.links button {
+    display: block;
+}

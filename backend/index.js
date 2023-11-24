@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 const accountRoute = require("./routes/account");
 const authRoute = require("./routes/auth");
 const paddleRoute = require("./routes/paddle");
+var cors = require('cors');
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ mongoose
         console.log(err);
     });
 
+app.use(cors());
 app.use(express.json());
 app.use("/api/account", accountRoute);
 app.use("/api/auth", authRoute);
