@@ -164,9 +164,9 @@ function App() {
         clear={clear}
       />
       <Products results={results} tool={tool} />
-      <Footer sidebar={'isSidebar'} />
+      <Footer sidebar={''} />
     </>
   );
 }
 
-export default App
+export default Likes

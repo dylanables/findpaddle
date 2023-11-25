@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import { Height } from '@mui/icons-material';
 import Container from '@mui/material/Container';
 
-const Footer = () => {
+const Footer = ({sidebar}) => {
   return (
   <Container>
-    <div className='footer'>
+    <div className={`footer ${sidebar}`}>
       <div className='top'>
         <div className='item'>
           <h1>Tools</h1>

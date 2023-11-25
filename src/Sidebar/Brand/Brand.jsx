@@ -14,6 +14,7 @@ const Brand = ({brand, handleSelectFilter}) => {
     { value: 'Volair', label: 'Volair' },
     { value: 'Gearbox', label: 'Gearbox' },
     { value: 'Six Zero', label: 'Six Zero' },
+    { value: 'Neonic', label: 'Neonic' },
   ];
 
   let curr_brand_vals = []

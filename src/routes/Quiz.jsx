@@ -223,7 +223,7 @@ function Quiz() {
       <Nav />
       <Questions currentQuestion={currentQuestion} selectedCategory={selectedCategory} handleClick={handleQuizClick} handleBackClick={handleBackClick} />
       <Products results={results} tool={tool} />
-      <Footer />
+      <Footer sidebar={''} />
     </>
   );
 }

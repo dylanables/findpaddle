@@ -3,6 +3,10 @@
     margin-bottom: 20px;
 }
 
+.footer .isSidebar {
+    padding-left: 25rem;
+}
+
 .top {
     display: flex;
     gap: 50px;

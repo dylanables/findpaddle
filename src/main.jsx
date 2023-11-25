@@ -11,6 +11,8 @@ import Paddle from "./routes/Paddle.jsx";
 import Quiz from "./routes/Quiz";
 import Similar from "./routes/Similar";
 import Admin from "./routes/Admin";
+import {Provider} from "react-redux";
+import store from "./redux/store";
 
 
 const router = createBrowserRouter([
@@ -46,7 +48,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+  <Provider store={store}>
+      <RouterProvider router={router} />
+  </Provider>,
 )

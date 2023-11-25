@@ -11,7 +11,6 @@ Recommendation Quiz Tool
 Homepage, page routing, integrate MongoDB backend
 
 ## P3
-Similarity Tool
-Search by name feature on homepage -> individual paddle page
+Similarity Tool, search by name feature on homepage -> individual paddle page
 
 
