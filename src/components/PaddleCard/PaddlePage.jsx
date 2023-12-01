@@ -1,10 +1,13 @@
 import './PaddlePage.css';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import Button from '@mui/material/Button';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { Container } from '@mui/material';
-import { addLike } from '../../redux/LikedRedux';
+import { addLike, removeLike } from '../../redux/LikedRedux';
 import { useDispatch } from 'react-redux';
+import { useSelector } from "react-redux";
+import { useState, useEffect } from 'react';
+import { grey, red } from '@mui/material/colors';
 
 
 function PaddlePage({id, img, title, brand, color, surface, coreThickness, handleLength, paddleWeight, paddleShape, aff_links, playStyle, bestPrice}) {
@@ -29,10 +32,34 @@ function PaddlePage({id, img, title, brand, color, surface, coreThickness, handl
     weightText = weightText.concat(paddleWeight[i] + "oz ");
   }
 
+  const likes = (useSelector(state=>state.liked));
+
+  const [isLiked, setIsLiked] = useState(!!likes.paddles.find((like) => like.id === id));
+
+  console.log("isLiked1",isLiked)
+
+  useEffect(()=>{
+    const liked = likes.paddles.find((like) => like.id === id);
+    if (liked) {
+      setIsLiked(true);
+      console.log("liked")
+    } else{
+      console.log("not liked")
+    }
+  }, []);
+
+  console.log("isLiked2",isLiked)
+  
   const dispatch = useDispatch();
 
   const handleLike = ()=>{
-    dispatch(addLike({id, title, img}))
+    if (isLiked) {
+      dispatch(removeLike({id, title, img}));
+      setIsLiked((prevState) => !prevState);
+    } else {
+      dispatch(addLike({id, title, img}));
+      setIsLiked((prevState) => !prevState);
+    }
   }
   
   return (
@@ -41,8 +68,8 @@ function PaddlePage({id, img, title, brand, color, surface, coreThickness, handl
       <h2 className='page-title'>
         {title}
       </h2>
-      <div className='page-heart-icon' onClick={()=>handleLike()}>
-        <FavoriteBorderOutlinedIcon />
+      <div className='page-heart-icon'>
+        <FavoriteIcon sx={{ color: isLiked ? red[500] : grey[400]}} onClick={()=>handleLike()} />
       </div>
       <img src={img} className='page-image' alt={title} />
       <section className='page-info'>

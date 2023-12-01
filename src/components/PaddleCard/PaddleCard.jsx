@@ -1,10 +1,13 @@
 import './PaddleCard.css';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import Button from '@mui/material/Button';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { Link } from "react-router-dom";
-import { addLike } from '../../redux/LikedRedux';
+import { addLike, removeLike } from '../../redux/LikedRedux';
 import { useDispatch } from 'react-redux';
+import { useSelector } from "react-redux";
+import { useState, useEffect } from 'react';
+import { grey, red } from '@mui/material/colors';
 
 
 function PaddleCard({id, img, title, brand, color, surface, coreThickness, handleLength, paddleWeight, paddleShape, aff_links, playStyle, bestPrice}) {
@@ -29,10 +32,25 @@ function PaddleCard({id, img, title, brand, color, surface, coreThickness, handl
     weightText = weightText.concat(paddleWeight[i] + "oz ");
   }
 
+  const likes = (useSelector(state=>state.liked));
+
+  const [isLiked, setIsLiked] = useState(likes.paddles.find((like) => like.id === id));
+
+  useEffect(()=>{
+    const liked = likes.paddles.find((like) => like.id === id);
+    setIsLiked(liked);
+  }, [likes]);
+  
   const dispatch = useDispatch();
 
   const handleLike = ()=>{
-    dispatch(addLike({id, title, img}))
+    if (isLiked) {
+      dispatch(removeLike({id, title, img}));
+      setIsLiked((prevState) => !prevState);
+    } else {
+      dispatch(addLike({id, title, img}));
+      setIsLiked((prevState) => !prevState);
+    }
   }
     
   return (
@@ -52,8 +70,8 @@ function PaddleCard({id, img, title, brand, color, surface, coreThickness, handl
         <p>Price: {bestPrice} (to remove)</p>
         <p>Shape: {paddleShape} (to remove)</p>
       </section>
-      <div className='heart-icon' onClick={()=>handleLike()}>
-          <FavoriteBorderOutlinedIcon />
+      <div className='heart-icon'>
+        <FavoriteIcon sx={{ color: isLiked ? red[500] : grey[400]}} onClick={()=>handleLike()} />
       </div>
       <section className='links'>
         {affs}
