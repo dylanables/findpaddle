@@ -3,7 +3,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import Button from '@mui/material/Button';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { Container } from '@mui/material';
-import { addLike, removeLike } from '../../redux/LikedRedux';
+import { addLike, removeLike } from '../../redux/likedRedux';
 import { useDispatch } from 'react-redux';
 import { useSelector } from "react-redux";
 import { useState, useEffect } from 'react';
