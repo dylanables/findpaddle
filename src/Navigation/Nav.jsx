@@ -20,7 +20,6 @@ import SvgIcon from '@mui/material/SvgIcon';
 
 import { Outlet, Link } from "react-router-dom";
 
-import { addLike } from '../redux/LikedRedux';
 import { useDispatch } from 'react-redux';
 import Liked from "../components/Liked/Liked";
 import { useSelector } from "react-redux";
