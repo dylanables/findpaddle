@@ -19,6 +19,23 @@ function RangeSlider({sel, keyName, min, max, units, marks, handleRangeFilter}) 
         min={min}
         max={max}
         marks={marks}
+        sx={{
+          '& .MuiSlider-thumb': {
+            color: "black"
+          },
+          '& .MuiSlider-track': {
+            color: "black"
+          },
+          '& .MuiSlider-rail': {
+            color: "black"
+          },
+          '& .MuiSlider-active': {
+            color: "black"
+          },
+          '& .MuiSlider-valueLabelLabel': {
+            color: "white"
+          },
+        }}
       />
     </Box>
   );

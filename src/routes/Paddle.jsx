@@ -8,23 +8,23 @@ import Button from '@mui/material/Button';
 import PaddlePage from '../components/PaddleCard/PaddlePage';
 
 
-function App() {
+function Paddle() {
 
   const location = useLocation();
   const paddleId = location.pathname.split("/")[2];
 
-  console.log(paddleId)
+  console.log("paddleID", paddleId)
 
   const[paddle, setPaddle] = useState({});
 
   useEffect(()=>{
     const getPaddle = async ()=>{
       try {
-        const res = await publicRequest.get("/paddle/find/"+paddleId);
+        const res = await publicRequest.get("https://findpaddle-api.onrender.com/api/paddle/find/"+paddleId);
         setPaddle(res.data);
-        console.log(res.data)
+        console.log("data: ", res.data)
       } catch(err) {
-        console.log(err);
+        console.log("error", err);
       }
     };
     getPaddle();
@@ -54,4 +54,4 @@ function App() {
   );
 }
 
-export default App
+export default Paddle

@@ -17,10 +17,11 @@ const Sidebar = ({brand, shape, surface, core, weight, handle, handleSelectFilte
         <Brand brand={brand} handleSelectFilter={handleSelectFilter} />
         <Shape shape={shape} handleButtonFilter={handleButtonFilter} />
         <Surface surface={surface} handleSelectFilter={handleSelectFilter} />
-        <Core core={core} handleRangeFilter={handleRangeFilter}/>
-        <Weight weight={weight} handleRangeFilter={handleRangeFilter} />
-        <Handle handle={handle} handleRangeFilter={handleRangeFilter} />
-
+        <div className='sliders'>
+          <Core core={core} handleRangeFilter={handleRangeFilter}/>
+          <Weight weight={weight} handleRangeFilter={handleRangeFilter} />
+          <Handle handle={handle} handleRangeFilter={handleRangeFilter} />
+        </div>
       </div>
     </section>
   )

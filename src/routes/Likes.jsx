@@ -9,7 +9,7 @@ import PaddleCard from '../components/PaddleCard/PaddleCard';
 import axios from 'axios';
 
 
-function App() {
+function Likes() {
 
   const[brand, setBrand] = useState([]);
   const[shape, setShape] = useState("");

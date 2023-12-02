@@ -34,21 +34,12 @@ function PaddlePage({id, img, title, brand, color, surface, coreThickness, handl
 
   const likes = (useSelector(state=>state.liked));
 
-  const [isLiked, setIsLiked] = useState(!!likes.paddles.find((like) => like.id === id));
-
-  console.log("isLiked1",isLiked)
+  const [isLiked, setIsLiked] = useState(likes.paddles.find((like) => like.id === id));
 
   useEffect(()=>{
     const liked = likes.paddles.find((like) => like.id === id);
-    if (liked) {
-      setIsLiked(true);
-      console.log("liked")
-    } else{
-      console.log("not liked")
-    }
-  }, []);
-
-  console.log("isLiked2",isLiked)
+    setIsLiked(true);
+  }, [likes]);
   
   const dispatch = useDispatch();
 

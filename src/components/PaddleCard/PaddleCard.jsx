@@ -14,10 +14,11 @@ function PaddleCard({id, img, title, brand, color, surface, coreThickness, handl
   const affs = [];
   aff_links.map((aff) => {
     affs.push(
-      <a href={aff.link} target="_blank" rel="noreferrer">
+      <a href={aff.link} target="_blank" rel="noreferrer" className='links'>
         <Button variant="contained" endIcon={<OpenInNewIcon />}>
           Buy @ {aff.retailer}
         </Button>
+        <br/><br/>
       </a>
     );
   });
@@ -55,27 +56,32 @@ function PaddleCard({id, img, title, brand, color, surface, coreThickness, handl
     
   return (
     <section className='card'>
-      <Link to={`/paddle/${id}`}><img src={img} className='card-image' alt={title} /></Link>
-      <section className='card-info'>
-        <Link to={`/paddle/${id}`}>
-          <h3 className='card-title'>
-            {title}
-          </h3>
-        </Link>
-        <p>Surface: {surface}</p>
-        <p>Weight: {weightText}</p>
-        <p>Core Thickness: {coreThicknessText}</p>
-        <p>Handle Length: {handleLength} in</p>
-        <p>Play Style: {playStyle} (to remove)</p>
-        <p>Price: {bestPrice} (to remove)</p>
-        <p>Shape: {paddleShape} (to remove)</p>
-      </section>
-      <div className='heart-icon'>
-        <FavoriteIcon sx={{ color: isLiked ? red[500] : grey[400]}} onClick={()=>handleLike()} />
+      <div className='card-sec'>
+        <Link to={`/paddle/${id}`}><img src={img} className='card-image' alt={title} /></Link>
       </div>
-      <section className='links'>
-        {affs}
-      </section>
+
+      <div className='card-sec card-info'>
+        <div className='card-title'>
+          <h3 className='like-icon'>
+            <Link to={`/paddle/${id}`}>
+              {title}
+            </Link>
+            <span className='heart-icon'>
+              <FavoriteIcon sx={{ color: isLiked ? red[500] : grey[400]}} onClick={()=>handleLike()} />
+            </span>
+          </h3>
+        </div>
+        <div className='details'>
+          <p><b>Surface:</b> {surface}</p>
+          <p><b>Weight:</b> {weightText}</p>
+          <p><b>Core Thickness:</b> {coreThicknessText}</p>
+          <p><b>Handle Length:</b> {handleLength} in</p>
+        </div>
+      </div>
+      <div className='card-sec card-links'>
+          {affs}
+      </div>
+      
     </section>
   );
 }
