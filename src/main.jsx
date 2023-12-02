@@ -23,11 +23,11 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "search/:brand",
+    path: "search",
     element: <App />,
   },
   {
-    path: "search/",
+    path: "search/:brand",
     element: <App />,
   },
   {
