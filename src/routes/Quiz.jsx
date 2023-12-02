@@ -20,7 +20,7 @@ function Quiz() {
   useEffect(()=>{
     const getPaddles = async ()=>{
       try {
-        const res = await axios.get("http://localhost:5000/api/paddle");
+        const res = await axios.get("https://findpaddle-api.onrender.com/api/paddle");
         setPaddles(res.data);
       } catch(err) {
         console.log(err);
