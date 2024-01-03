@@ -57,7 +57,7 @@ function PaddleCard({id, img, title, brand, color, surface, coreThickness, handl
   return (
     <section className='card'>
       <div className='card-sec'>
-        <Link to={`/paddle/${id}`}><img src={img} className='card-image' alt={title} /></Link>
+        <Link to={`/paddle/${id}`}><img src={img} loading='lazy' className='card-image' alt={title} /></Link>
       </div>
 
       <div className='card-sec card-info'>

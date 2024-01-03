@@ -4,12 +4,13 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom';
-import App from './routes/App.jsx';
+import Search from './routes/Search.jsx';
 import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import Paddle from "./routes/Paddle.jsx";
 import Quiz from "./routes/Quiz";
 import Similar from "./routes/Similar";
+import Guide from "./routes/Guide";
 import Admin from "./routes/Admin";
 import { Provider } from "react-redux";
 import store from "./redux/store";
@@ -24,11 +25,11 @@ const router = createBrowserRouter([
   },
   {
     path: "search",
-    element: <App />,
+    element: <Search />,
   },
   {
     path: "search/:brand",
-    element: <App />,
+    element: <Search />,
   },
   {
     path: "quiz",
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: "similar",
     element: <Similar />,
+  },
+  {
+    path: "guide",
+    element: <Guide />,
   },
   {
     path: "paddle/:paddleName",

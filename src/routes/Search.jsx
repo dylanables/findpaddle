@@ -9,7 +9,7 @@ import PaddleCard from '../components/PaddleCard/PaddleCard';
 import axios from 'axios';
 
 
-function App() {
+function Search() {
 
   const[brand, setBrand] = useState([]);
   const[shape, setShape] = useState("");
@@ -143,7 +143,7 @@ function App() {
     
   }
 
-  const results = filterList(paddles, brand,shape,surface);
+  const results = filterList(paddles,brand,shape,surface);
   console.log("results", results);
 
   const tool = "search";
@@ -169,4 +169,4 @@ function App() {
   );
 }
 
-export default App
+export default Search
