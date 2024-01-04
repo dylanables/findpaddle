@@ -1,11 +1,14 @@
 import Nav from '../Navigation/Nav';
+import Footer from '../Footer/Footer';
 import '../index.css';
 import { Container } from '@mui/material';
+import { ScrollRestoration } from 'react-router-dom';
 
 function Guide() {
 
   return (
     <>
+      <ScrollRestoration/>
       <Nav />
       <Container>
         <section className='margintop'>
@@ -95,6 +98,7 @@ function Guide() {
 
         </section>
       </Container>
+      <Footer sidebar={''} />
     </>
   );
 }

@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 //import paddles from '../db/data';
 import PaddleCard from '../components/PaddleCard/PaddleCard';
 import axios from 'axios';
+import { ScrollRestoration } from 'react-router-dom';
 
 
 function Search() {
@@ -150,6 +151,7 @@ function Search() {
 
   return (
     <>
+      <ScrollRestoration/>
       <Nav />
       <Sidebar 
         brand={brand} 

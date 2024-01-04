@@ -1,7 +1,12 @@
+import './Loading.css';
+import CircularProgress from '@mui/material/CircularProgress';
+
 function Loading() {
 
     return (
-      <span>Loading Paddles...</span>
+      <div className="full-height">
+        <div className='loading-circle'><CircularProgress /></div>
+      </div>
      )
   }
   

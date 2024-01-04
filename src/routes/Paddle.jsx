@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 import { publicRequest } from '../requestMethods';
 import Button from '@mui/material/Button';
 import PaddlePage from '../components/PaddleCard/PaddlePage';
+import { ScrollRestoration } from 'react-router-dom';
 
 
 function Paddle() {
@@ -34,6 +35,7 @@ function Paddle() {
 
   return (
     <>
+      <ScrollRestoration/>
       <Nav />
       <PaddlePage 
         id={paddle._id} //change

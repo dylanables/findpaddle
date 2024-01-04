@@ -6,13 +6,14 @@ import SearchIcon from '@mui/icons-material/Search';
 import SportsTennisIcon from '@mui/icons-material/SportsTennis';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import Container from '@mui/material/Container';
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, ScrollRestoration } from "react-router-dom";
 
 
 function Root() {
 
   return (
     <>
+      <ScrollRestoration/>
       <Nav />
       <Container maxWidth="xl">
         <div className='hero'>

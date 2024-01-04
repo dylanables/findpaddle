@@ -8,6 +8,7 @@ import React, { useState, useEffect } from 'react';
 import PaddleCard from '../components/PaddleCard/PaddleCard';
 import questions from '../db/questions';
 import axios from 'axios';
+import { ScrollRestoration } from 'react-router-dom';
 
 let initialCategories = ["","","","","","","","","",""];
 
@@ -220,6 +221,7 @@ function Quiz() {
 
   return (
     <>
+      <ScrollRestoration/>
       <Nav />
       <Questions currentQuestion={currentQuestion} selectedCategory={selectedCategory} handleClick={handleQuizClick} handleBackClick={handleBackClick} />
       <Products results={results} tool={tool} />

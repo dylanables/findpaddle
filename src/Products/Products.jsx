@@ -17,9 +17,12 @@ const Products = ({results, tool}) => {
     <div className={`results ${tool}`} id={tool}>
     <Container maxWidth='xl'>
     <h2 id='quiz-results-heading'>Quiz Results</h2>
-    <p>{loading}Found {results.length} result{results.length !== 1 ? "s" : ""}...</p>
 
     <section className='card-container'>
+      {loading
+        ? <Loading />
+        : <p>Found {results.length} result{results.length !== 1 ? "s" : ""}...</p>
+      }
       {results}
     </section>
     </Container>
