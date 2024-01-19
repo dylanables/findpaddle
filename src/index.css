@@ -27,7 +27,7 @@ li {
     width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -36,9 +36,12 @@ li {
     height: 300px;
     padding: 30px;
     text-align: center;
-    margin: 30px 10px 30px 10px;
-    border: 1px solid #000;
+    margin: 30px 10px;
+    border: 1px solid #d9d9d9b4;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .why-img-container {
@@ -61,6 +64,10 @@ li {
 .why-img {
     height: 200px;
     width: 200px;
+}
+
+.why-section {
+    margin-bottom: 50px;
 }
 
 h1 {
@@ -95,11 +102,16 @@ ol {
     margin-left: 30px;
 }
 
-.contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 200px;
+@media screen and (max-width: 700px) {
+    .tool {
+        width: 100%;
+        height: auto;
+        margin: 15px 10px;
+    }
+    .why {
+        width: 300px;
+        height: auto;
+        padding: 0px;
+        margin: 0px 15px;
+    }
 }

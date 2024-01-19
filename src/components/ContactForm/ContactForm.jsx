@@ -2,6 +2,7 @@ import emailjs from "@emailjs/browser"
 import { useEffect, useState } from "react"
 import { Button } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
+import "./contactForm.css";
 
 const Contact = () => {
     const [name, setName] = useState("");

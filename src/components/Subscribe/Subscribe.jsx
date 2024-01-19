@@ -1,7 +1,7 @@
 import emailjs from "@emailjs/browser"
 import { useEffect, useState } from "react"
-import { TextField, Button, IconButton } from "@mui/material"
-
+import { Container, TextField, Button, IconButton } from "@mui/material"
+import "./subscribe.css";
 
 const Subscribe = () => {
     const [email, setEmail] = useState("");
@@ -30,22 +30,23 @@ const Subscribe = () => {
 
     return (
         <div id="subscribe">
-            <h2>Subscribe for Updates</h2><br/><br/>
-            <TextField
-                label="Email"
-                fullWidth
-                onChange={e=>setEmail(e.target.value)}
-                InputProps={{
-                    endAdornment: 
-                        <Button 
-                            onClick={handleSubmit} 
-                            disabled={isLoading}
-                            variant="contained"
-                        >
-                            Subscribe
-                        </Button>
-                }}
-            />
+                <h2>Subscribe for Updates</h2>
+                <p>Get notified of all the latest developments in pickleball paddles and feature launches!</p><br/>
+                <TextField
+                    label="Email"
+                    onChange={e=>setEmail(e.target.value)}
+                    InputProps={{
+                        endAdornment: 
+                            <Button 
+                                onClick={handleSubmit} 
+                                disabled={isLoading}
+                                variant="contained"
+                            >
+                                Subscribe
+                            </Button>,
+                        className: "lightInput",
+                    }}
+                />
         </div>
     )
 }

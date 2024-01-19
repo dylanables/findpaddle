@@ -20,7 +20,7 @@ const Footer = ({sidebar}) => {
           <h1>Get in Touch</h1>
           <span><Link to='/contact'>Contact Us</Link></span>
           <span><Link to='/#subscribe'>Sign Up for Mailing List</Link></span>
-          <span><Link to='/contact'>Submit Feedback</Link></span>
+          <span><Link to='/contact'>Partner with Us</Link></span>
         </div>
       </div>
       <div className='bottom'>

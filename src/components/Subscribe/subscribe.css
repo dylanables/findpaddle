@@ -1,0 +1,20 @@
+#subscribe {
+    background-color: rgb(32, 32, 32);
+    color: white;
+    padding: 100px 50px;
+    text-align: center;
+}
+
+.lightInput {
+    background-color: white;
+    width: 750px;
+}
+
+@media screen and (max-width: 1024px) {
+    #subscribe {
+        padding: 50px 25px;
+    }
+    .lightInput {
+        width: 100%;
+    }
+}

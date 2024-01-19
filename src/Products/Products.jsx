@@ -15,17 +15,16 @@ const Products = ({results, tool}) => {
 
   return (
     <div className={`results ${tool}`} id={tool}>
-    <Container maxWidth='xl'>
-    <h2 id='quiz-results-heading'>Quiz Results</h2>
-
-    <section className='card-container'>
-      {loading
-        ? <Loading />
-        : <p>Found {results.length} result{results.length !== 1 ? "s" : ""}...</p>
-      }
-      {results}
-    </section>
-    </Container>
+      <Container maxWidth='xl'>
+        <h2 id='quiz-results-heading'>Quiz Results</h2>
+        {loading
+            ? <Loading />
+            : <p>Found {results.length} result{results.length !== 1 ? "s" : ""}...</p>
+          }
+        <section className='card-container'>
+          {results}
+        </section>
+      </Container>
     </div>
   )
 }

@@ -65,8 +65,8 @@ function Root() {
             </div>
           </div>
         </div>
-        <Subscribe />
       </Container>
+      <Subscribe />
       <Footer />
     </>
   );
