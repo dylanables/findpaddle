@@ -13,15 +13,14 @@ const Footer = ({sidebar}) => {
           <h1>Tools</h1>
           <span><Link to='/search'>Advanced Search</Link></span>
           <span><Link to='/quiz'>Recommendation Quiz</Link></span>
-          <span><Link to='/similar'>Find Similar Paddles</Link></span>
+          {/*<span><Link to='/similar'>Find Similar Paddles</Link></span>*/}
           <span><Link to='/guide'>Paddle Guide</Link></span>
         </div>
         <div className='item'>
-          <h1>Links</h1>
-          <span>Contact Us</span>
-          <span>Sign Up for Mailing List</span>
-          <span>Submit Feedback</span>
-          <span>Privacy Policy</span>
+          <h1>Get in Touch</h1>
+          <span><Link to='/contact'>Contact Us</Link></span>
+          <span><Link to='/#subscribe'>Sign Up for Mailing List</Link></span>
+          <span><Link to='/contact'>Submit Feedback</Link></span>
         </div>
       </div>
       <div className='bottom'>

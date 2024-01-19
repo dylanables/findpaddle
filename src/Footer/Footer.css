@@ -62,4 +62,8 @@ span {
     .isSidebar {
         padding-left: 0;
     }
+    .top {
+        flex-direction: column;
+        gap: 10px;
+    }
 }

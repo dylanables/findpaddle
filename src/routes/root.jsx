@@ -7,6 +7,7 @@ import SportsTennisIcon from '@mui/icons-material/SportsTennis';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import Container from '@mui/material/Container';
 import { Outlet, Link, ScrollRestoration } from "react-router-dom";
+import Subscribe from '../components/Subscribe/Subscribe';
 
 
 function Root() {
@@ -36,11 +37,13 @@ function Root() {
               <p>Learn all about what makes each paddle unique, and how to determine which specifications will best suit your game.</p>
               <Link to={'/guide'}><Button size="large" variant="outlined" endIcon={<SportsTennisIcon />}>See Guide</Button></Link>
             </div>
+            {/*
             <div className='tool'>
               <h3>Find Similar Paddles</h3>
               <p>Have a paddle you love but it's out of stock or discontinued? Find similar to the paddle with this tool.</p>
               <Link to={'/similar'}><Button size="large" variant="outlined" endIcon={<CompareArrowsIcon />}>Find Similar</Button></Link>
             </div>
+            */}
           </div>
 
         </div>
@@ -62,6 +65,7 @@ function Root() {
             </div>
           </div>
         </div>
+        <Subscribe />
       </Container>
       <Footer />
     </>

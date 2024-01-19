@@ -1,8 +1,9 @@
 import Nav from '../Navigation/Nav';
 import Footer from '../Footer/Footer';
 import '../index.css';
-import { Container } from '@mui/material';
+import { Container, Button } from '@mui/material';
 import { ScrollRestoration } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Guide() {
 
@@ -18,9 +19,11 @@ function Guide() {
 
             <h3>1. Paddle Materials:</h3>
             <ul>
-                <li><strong>Wood:</strong> Traditional and cost-effective, but heavier and less powerful.</li>
-                <li><strong>Composite:</strong> Combining materials like fiberglass, carbon fiber, and polymer, providing a good balance of power and control.</li>
-                <li><strong>Graphite:</strong> Lightweight and offers excellent power, favored by advanced players.</li>
+                <li><strong>Carbon Fiber:</strong> Lightweight and strong material offering excellent power and spin potential, favored by most advanced players.</li>
+                <li><strong>Graphite:</strong> Slightly softer feel than carbon fiber offering increase touch, finesse, and foregiveness.</li>
+                <li><strong>Fiberglass:</strong> Softer and more cushioned feel upon ball contact, great option for beginners looking for a forgiving paddle that helps to reduce vibrations and fatigue.</li>
+                <li><strong>Composite:</strong> Combination of materials like fiberglass, carbon fiber, and polymer, providing a good balance of power and control.</li>
+                <li><strong>Wood:</strong> Traditional and cost-effective, but heavier and generally not recommended for anyone.</li>
             </ul>
 
             <h3>2. Paddle Core:</h3>
@@ -32,7 +35,8 @@ function Guide() {
 
             <h3>3. Paddle Shape:</h3>
             <ul>
-                <li><strong>Widebody:</strong> Wider face, offering a larger sweet spot for beginners.</li>
+                <li><strong>Elongated:</strong> Popular option for intermediate/advanced players looking to add more reach and power.</li>
+                <li><strong>Square:</strong> Wider face, offering a larger sweet spot for beginners.</li>
                 <li><strong>Standard:</strong> Balanced option, suitable for all-around play.</li>
                 <li><strong>Long Handle:</strong> Extended handle for two-handed grip, preferred by some players.</li>
             </ul>
@@ -94,7 +98,9 @@ function Guide() {
 
             <br/>
 
-            <p>Remember, the best pickleball paddle for you is a personal choice that aligns with your playing style, skill level, and preferences. Take the time to try different options and consider seeking guidance from experienced players to find the perfect match for your game.</p>
+            <p>Remember, the best pickleball paddle for you is a personal choice that aligns with your playing style, skill level, and preferences.</p>
+            <p>Now that you know what to look for in your next paddle, use our <Link to={"/search"}><Button>Search Tool</Button></Link> to filter based on your preferences.</p>
+            <p>Or, if you still need more help determining what's best for you, take out <Link to={"/search"}><Button>Paddle Quiz</Button></Link> to get our personal recommendations.</p>
 
         </section>
       </Container>

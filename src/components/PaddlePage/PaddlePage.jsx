@@ -15,11 +15,6 @@ function PaddlePage({id, img, title, brand, color, surface, coreThickness, handl
 
   const [isLiked, setIsLiked] = useState(likes.paddles.find((like) => like.id === id));
 
-  console.log("id",id);
-  console.log("likes",likes);
-  console.log("equal",id===likes.paddles[0].id);
-  console.log("isLiked",isLiked);
-
   useEffect(()=>{
     const liked = likes.paddles.find((like) => like.id === id);
     setIsLiked(liked);
@@ -73,9 +68,6 @@ function PaddlePage({id, img, title, brand, color, surface, coreThickness, handl
           <p>Weight: {weightText}</p>
           <p>Core Thickness: {coreThicknessText}</p>
           <p>Handle Length: {handleLength} in</p>
-          <p>Play Style: {playStyle} (to remove)</p>
-          <p>Price: {bestPrice} (to remove)</p>
-          <p>Shape: {paddleShape} (to remove)</p>
       </section>
       <section className='page-links'>
         {affs}

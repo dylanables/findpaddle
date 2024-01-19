@@ -29,11 +29,10 @@ import { useSelector } from "react-redux";
 const pages = [
   {text: 'Advanced Search', href: '/search'}, 
   {text: 'Recommendation Quiz', href: '/quiz'}, 
-  {text: 'Find Similar', href: '/similar'},
+  {text: 'Paddle Guide', href: '/guide'}, 
+  //{text: 'Find Similar', href: '/similar'},
 ];
 
-
-//const pages = ["search", "quiz", "similar"];
 
 const Nav = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
