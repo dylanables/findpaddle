@@ -24,10 +24,8 @@ const Footer = ({sidebar}) => {
         </div>
       </div>
       <div className='bottom'>
-        <div className='left'>
           <span><img src='/findpaddle.svg' alt="FindPaddle" className='logo' /> FindPaddle.com</span>
           <span className='copyright'>© Copyright 2023. All rights reserved</span>
-        </div>
       </div>
     </div>
   </Container>

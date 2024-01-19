@@ -20,6 +20,7 @@ const Subscribe = () => {
             await emailjs.send(serviceId, templateId, {
                 email: email,
             });
+            setEmail("")
             alert("Subscription successful!")
         } catch (err) {
             console.log(err);
@@ -33,7 +34,8 @@ const Subscribe = () => {
                 <h2>Subscribe for Updates</h2>
                 <p>Get notified of all the latest developments in pickleball paddles and feature launches!</p><br/>
                 <TextField
-                    label="Email"
+                    placeholder="Email"
+                    value={email}
                     onChange={e=>setEmail(e.target.value)}
                     InputProps={{
                         endAdornment: 

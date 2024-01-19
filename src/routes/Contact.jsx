@@ -1,6 +1,5 @@
 import Nav from '../Navigation/Nav';
 import Footer from '../Footer/Footer';
-import Subscribe from '../components/Subscribe/Subscribe';
 import ContactForm from '../components/ContactForm/ContactForm';
 import "../index.css";
 

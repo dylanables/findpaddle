@@ -13,6 +13,7 @@ import Similar from "./routes/Similar";
 import Guide from "./routes/Guide";
 import Admin from "./routes/Admin";
 import Contact from "./routes/Contact";
+import Unsubscribe from "./routes/Unsubscribe";
 import { Provider, useSelector } from "react-redux";
 import store from "./redux/store";
 import { PersistGate } from 'redux-persist/integration/react';
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
   {
     path: "contact",
     element: <Contact />,
+  },
+  {
+    path: "unsubscribe",
+    element: <Unsubscribe />,
   },
 ]);
 

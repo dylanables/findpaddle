@@ -25,6 +25,9 @@ const Contact = () => {
                 email: email,
                 message: message,
             });
+            setName("")
+            setEmail("")
+            setMessage("")
             alert("Contact submission sent!")
         } catch (err) {
             console.log(err);
@@ -40,25 +43,26 @@ const Contact = () => {
                 type="text" 
                 placeholder="Name" 
                 onChange={e=>setName(e.target.value)}
-                style={{padding:10}} />
+                style={{padding:10}}
+                value={name} />
             <input 
                 type="text"
                 required
                 placeholder="Email" 
                 onChange={e=>setEmail(e.target.value)}
-                style={{padding:10}} />
+                style={{padding:10}}
+                value={email} />
             <textarea
                 placeholder="Message"
                 required
                 onChange={e=>setMessage(e.target.value)}
-                style={{padding:10}} />
-            <button 
+                style={{padding:10}}
+                value={message} />
+            <Button 
+                variant="contained"
                 onClick={handleSubmit} 
                 disabled={isLoading}
             >
-                Send
-            </button>
-            <Button variant="contained">
                 <SendIcon /> Send
             </Button>
         </div>
