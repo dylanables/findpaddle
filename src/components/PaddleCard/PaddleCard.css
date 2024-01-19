@@ -2,20 +2,30 @@
     margin: 10px;
     border: 2px solid #ededed;
     padding: 15px;
-    cursor: pointer;
     background-color: #ffffff;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     overflow: auto;
     gap: 15px;
+    justify-content: space-between;
 }
 
 .card-sec {
+    align-items: center;
+    justify-content: center;
+}
+
+.image-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .card-links {
-    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .card-image {
@@ -48,4 +58,8 @@
 
 .links {
     float: right;
+}
+
+a {
+    z-index:999 !important;
 }

@@ -1,4 +1,4 @@
-.nav-link-white {
+.nav-link-white, .logo-text {
     color: #fff;
     text-decoration: none;
 }
@@ -6,4 +6,25 @@
 .nav-link-black {
     color: #000;
     text-decoration: none;
+}
+
+@media screen and (max-width: 414px) {
+    .logo-text {
+        font-size: 0.75em;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .logo-text {
+        font-size: 0.75em;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .logo-text {
+        display: none;
+    }
+    .logo-icon {
+        margin-left: 50px;
+    }
 }

@@ -1,4 +1,4 @@
-# Find Paddle
+# FindPaddle
 A React web app that offers multiple tools to find pickleball paddles. Advanced searching and filtering on paddle attributes, a recommendation engine based on a simple quiz, and a similarity score algorithm to find other paddles similar to another paddle.
 
 ## P0

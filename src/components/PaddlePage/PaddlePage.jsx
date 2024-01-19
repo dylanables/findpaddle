@@ -11,6 +11,22 @@ import { grey, red } from '@mui/material/colors';
 
 
 function PaddlePage({id, img, title, brand, color, surface, coreThickness, handleLength, paddleWeight, paddleShape, aff_links, playStyle, bestPrice}) {
+  const likes = (useSelector(state=>state.liked));
+
+  const [isLiked, setIsLiked] = useState(likes.paddles.find((like) => like.id === id));
+
+  console.log("id",id);
+  console.log("likes",likes);
+  console.log("equal",id===likes.paddles[0].id);
+  console.log("isLiked",isLiked);
+
+  useEffect(()=>{
+    const liked = likes.paddles.find((like) => like.id === id);
+    setIsLiked(liked);
+  }, [likes, id]);
+
+  const dispatch = useDispatch();
+
   const affs = [];
   aff_links?.map((aff) => {
     affs.push(
@@ -31,17 +47,6 @@ function PaddlePage({id, img, title, brand, color, surface, coreThickness, handl
   for (let i = 0; i < paddleWeight?.length; i++) {
     weightText = weightText.concat(paddleWeight[i] + "oz ");
   }
-
-  const likes = (useSelector(state=>state.liked));
-
-  const [isLiked, setIsLiked] = useState(likes.paddles.find((like) => like.id === id));
-
-  useEffect(()=>{
-    const liked = likes.paddles.find((like) => like.id === id);
-    setIsLiked(true);
-  }, [likes]);
-  
-  const dispatch = useDispatch();
 
   const handleLike = ()=>{
     if (isLiked) {

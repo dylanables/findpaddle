@@ -12,11 +12,11 @@ import Quiz from "./routes/Quiz";
 import Similar from "./routes/Similar";
 import Guide from "./routes/Guide";
 import Admin from "./routes/Admin";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import store from "./redux/store";
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
-import { ScrollRestoration } from 'react-router-dom';
+import { ScrollRestoration, redirect } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
