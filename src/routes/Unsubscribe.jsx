@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import emailjs from "@emailjs/browser"
 import { Padding } from '@mui/icons-material';
+import { ScrollRestoration } from 'react-router-dom';
 
 const Unsubscribe = () => {
     const [queryParameters] = useSearchParams();
@@ -35,6 +36,7 @@ const Unsubscribe = () => {
 
     return (
     <>
+        <ScrollRestoration />
         <Nav/>
             <div className='margintop' style={{textAlign: "center", padding: 20}}>
                 <h2 className='margintop'>We're sad to see you leave :(</h2>

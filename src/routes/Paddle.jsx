@@ -36,7 +36,6 @@ function Paddle() {
     <>
       <ScrollRestoration/>
       <Nav />
-      <Loading/>
       {loading
         ? <Loading />
         : <PaddlePage 

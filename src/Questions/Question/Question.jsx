@@ -12,7 +12,7 @@ function Question({currentQuestion, selectedCategory, handleClick}) {
 
       <div className='answer-section'>
         {questions[currentQuestion].answerOptions.map((answerOption) => (
-            <label className='sidebar-label-container'>
+            <label key={answerOption.answerValue} className='sidebar-label-container'>
                 <QuizButtons onClickHandler={handleClick} value={answerOption.answerValue} title={answerOption.answerText} selectedCategory={selectedCategory} activeBtn={answerOption.answerValue === selectedCategory[currentQuestion] ? "activeBtn" : ""} />
             </label>
         ))}

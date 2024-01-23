@@ -9,7 +9,7 @@ function RangeSlider({sel, keyName, min, max, units, marks, handleRangeFilter}) 
   }
 
   return (
-    <Box sx={{ width: 300 }}>
+    <Box>
       <Slider
         getAriaLabel={() => 'Range'}
         value={sel}

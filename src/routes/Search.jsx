@@ -125,7 +125,8 @@ function Search() {
 
 
     return filteredPaddles.map(({_id, title, img, brand, color, surface, coreThickness, handleLength, paddleWeight, paddleShape, playStyle, bestPrice, aff_links}) => (
-      <PaddleCard 
+      <PaddleCard
+        key={_id}
         id={_id}
         img={img}
         title={title}

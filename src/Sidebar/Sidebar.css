@@ -40,6 +40,10 @@
   color:#c9c9c9;
 }
 
+.sliders {
+
+}
+
 .paddle-guide-bottom a {
   color: #42bff5; 
 }
@@ -56,6 +60,9 @@
     }
     .sidebar .logo-container {margin-bottom: 1rem;}
     div.content {margin-left: 0;}
+    .sidebar-container {
+      margin-top: 30px;
+    }
   }
   
   @media screen and (max-width: 400px) {

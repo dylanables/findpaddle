@@ -192,7 +192,8 @@ function Quiz() {
     }
 
     return filteredProducts.map(({_id, img, title, star, reviews, avgPrice, bestPrice, aff_links, why_chosen, color, surface, skill, playStyle, coreThickness, paddleWeight, handleLength, paddleShape}) => (
-      <PaddleCard 
+      <PaddleCard
+      key={_id}
       id={_id}
       img={img}
       title={title}
