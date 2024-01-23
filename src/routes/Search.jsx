@@ -117,8 +117,8 @@ function Search() {
       (brand.length < 1 || brand.includes(paddle.brand) || paddle.brand.includes(brand)) &&
       (shape.length < 1 || shape.includes(paddle.paddleShape) || paddle.paddleShape.includes(shape)) &&
       (surface.length < 1 || surface.includes(paddle.surface) || (paddle.surface).includes(surface)) && 
-      (parseFloat(paddle.coreThickness) >= core[0] && parseFloat(paddle.coreThickness) <= core[1]) &&
-      (parseFloat(paddle.paddleWeight) >= weight[0] && parseFloat(paddle.paddleWeight) <= weight[1]) &&
+      (paddle.coreThickness.some((thick) => {return parseFloat(thick) >= core[0]}) && (paddle.coreThickness.some((thick) => {return parseFloat(thick) <= core[1]}))) &&
+      (paddle.paddleWeight.some((weigh) => {return parseFloat(weigh) >= weight[0]}) && (paddle.paddleWeight.some((weigh) => {return parseFloat(weigh) <= weight[1]}))) &&
       (parseFloat(paddle.handleLength) >= handle[0] && parseFloat(paddle.handleLength) <= handle[1])
     );
 
