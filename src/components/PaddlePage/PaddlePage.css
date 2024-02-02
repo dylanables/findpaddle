@@ -1,7 +1,6 @@
 .page {
     margin: 100px 10px 10px 10px;
     padding: 15px;
-    cursor: pointer;
     background-color: #ffffff;
     width: 100%;
     overflow: auto;
@@ -26,10 +25,6 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
-
-.heart-icon {
-    color: #535353;
 }
 
 .page-links {

@@ -59,7 +59,7 @@ function PaddlePage({id, img, title, brand, color, surface, coreThickness, handl
       <h2 className='page-title'>
         {title}
       </h2>
-      <div className='page-heart-icon'>
+      <div className='heart-icon'>
         <FavoriteIcon sx={{ color: isLiked ? red[500] : grey[400]}} onClick={()=>handleLike()} />
       </div>
       <img src={img} className='page-image' alt={title} />

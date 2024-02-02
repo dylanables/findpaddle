@@ -102,6 +102,11 @@ ol {
     margin-left: 30px;
 }
 
+.heart-icon {
+    cursor: pointer;
+    color: #535353;
+}
+
 @media screen and (max-width: 700px) {
     .tool {
         width: 100%;

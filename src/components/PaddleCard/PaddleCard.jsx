@@ -9,7 +9,6 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from 'react';
 import { grey, red } from '@mui/material/colors';
 
-
 function PaddleCard({id, img, title, brand, color, surface, coreThickness, handleLength, paddleWeight, paddleShape, aff_links, playStyle, bestPrice}) {
   const likes = (useSelector(state=>state.liked));
 
