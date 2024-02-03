@@ -13,7 +13,7 @@ function Liked() {
         {
         numLikes > 0 ? 
         likedPaddles.map(item=>(
-          <Link to={`/paddle/${item.id}`}>
+          <Link to={`/paddle/${item.slug}`}>
             <div className='item' key={item.id}>
                 <img src={item.img} alt='' />
                 <div className='details'>

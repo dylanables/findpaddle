@@ -8,11 +8,12 @@ import Button from '@mui/material/Button';
 import PaddlePage from '../components/PaddlePage/PaddlePage';
 import { ScrollRestoration } from 'react-router-dom';
 import Loading from '../components/Loading/Loading';
+import Footer from '../Footer/Footer';
 
 function Paddle() {
 
   const location = useLocation();
-  const paddleId = location.pathname.split("/")[2];
+  const paddleSlug = location.pathname.split("/")[2];
 
   const[paddle, setPaddle] = useState({});
   const[loading, setLoading] = useState(false);
@@ -21,7 +22,7 @@ function Paddle() {
     const getPaddle = async ()=>{
       try {
         setLoading(true);
-        const res = await publicRequest.get("https://findpaddle-api.onrender.com/api/paddle/find/"+paddleId);
+        const res = await publicRequest.get("https://findpaddle-api.onrender.com/api/paddle/find/"+paddleSlug);
         setPaddle(res.data);
         setLoading(false);
         console.log("data: ", res.data);
@@ -30,7 +31,7 @@ function Paddle() {
       }
     };
     getPaddle();
-  }, [paddleId]);
+  }, [paddleSlug]);
 
   return (
     <>
@@ -54,6 +55,7 @@ function Paddle() {
             aff_links={paddle.aff_links}
           />
       }
+      <Footer />
     </>
   );
 }

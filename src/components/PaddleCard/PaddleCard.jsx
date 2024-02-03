@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from 'react';
 import { grey, red } from '@mui/material/colors';
 
-function PaddleCard({id, img, title, brand, color, surface, coreThickness, handleLength, paddleWeight, paddleShape, aff_links, playStyle, bestPrice}) {
+function PaddleCard({id, img, title, slug, brand, color, surface, coreThickness, handleLength, paddleWeight, paddleShape, aff_links, playStyle, bestPrice}) {
   const likes = (useSelector(state=>state.liked));
 
   const [isLiked, setIsLiked] = useState(likes.paddles.find((like) => like.id === id));
@@ -58,10 +58,10 @@ function PaddleCard({id, img, title, brand, color, surface, coreThickness, handl
 
   const handleLike = ()=>{
     if (isLiked) {
-      dispatch(removeLike({id, title, img}));
+      dispatch(removeLike({id, title, slug, img}));
       setIsLiked((prevState) => !prevState);
     } else {
-      dispatch(addLike({id, title, img}));
+      dispatch(addLike({id, title, slug, img}));
       setIsLiked((prevState) => !prevState);
     }
   }
@@ -71,7 +71,7 @@ function PaddleCard({id, img, title, brand, color, surface, coreThickness, handl
       <div className='image-info'>
         <div className='card-sec'>
           <div>
-            <Link to={`/paddle/${id}`}>
+            <Link to={`/paddle/${slug}`}>
               <img src={img} loading='lazy' className='card-image' alt={title} />
             </Link>
           </div>
@@ -80,7 +80,7 @@ function PaddleCard({id, img, title, brand, color, surface, coreThickness, handl
         <div className='card-sec card-info'>
           <div className='card-title'>
             <h3 className='like-icon'>
-              <Link to={`/paddle/${id}`}>
+              <Link to={`/paddle/${slug}`}>
                 {title}
               </Link>
               <span className='heart-icon'>

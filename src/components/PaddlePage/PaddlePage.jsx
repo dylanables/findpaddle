@@ -33,10 +33,10 @@ function PaddlePage({id, img, title, brand, color, surface, coreThickness, handl
 
   const handleLike = ()=>{
     if (isLiked) {
-      dispatch(removeLike({id, title, img}));
+      dispatch(removeLike({id, title, slug, img}));
       setIsLiked((prevState) => !prevState);
     } else {
-      dispatch(addLike({id, title, img}));
+      dispatch(addLike({id, title, slug, img}));
       setIsLiked((prevState) => !prevState);
     }
   }
@@ -84,6 +84,7 @@ function PaddlePage({id, img, title, brand, color, surface, coreThickness, handl
           </tbody>
         </table>
       </section>
+      <section className='review'></section>
     </div>
   </Container>
   );
