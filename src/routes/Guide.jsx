@@ -15,7 +15,7 @@ function Guide() {
         <section className='margintop'>
             <h1>Pickleball Paddle Guide</h1>
             
-            <h2>Understanding Pickleball Paddle Basics</h2>
+            <h2 >Understanding Pickleball Paddle Basics</h2>
 
             <h3>1. Paddle Materials:</h3>
             <ul>
@@ -28,9 +28,9 @@ function Guide() {
 
             <h3>2. Paddle Core:</h3>
             <ul>
-                <li><strong>Nomex:</strong> Stiffer and provides more power.</li>
-                <li><strong>Polymer:</strong> Softer, allowing for better control and touch.</li>
-                <li><strong>Aluminum:</strong> Lighter and quieter, but less popular due to reduced power.</li>
+                <li><strong>Nomex:</strong> Stiff, durable, provides more power. Loudest of the core materials.</li>
+                <li><strong>Aluminum:</strong> Soft, lightweight, but less popular due to reduced power.</li>
+                <li><strong>Polymer:</strong> Soft, lightweight, durable, quiet, allows for superior control and touch. Most popular core material.</li>
             </ul>
 
             <h3>3. Paddle Shape:</h3>
@@ -74,12 +74,29 @@ function Guide() {
 
             <h3>2. Grip Size:</h3>
             <ul>
-                <li><strong>Small:</strong> 4 inches in circumference, suitable for players with small hands.</li>
-                <li><strong>Medium:</strong> 4.25 inches, the standard for most players.</li>
-                <li><strong>Large:</strong> 4.5 inches, ideal for players with larger hands.</li>
+                <li><strong>Thin:</strong> 3.5-4.25 inches in circumference, suitable for players with small hands.</li>
+                <li><strong>Standard:</strong> 4.25-4.5 inches, the standard for most players.</li>
+                <li><strong>Thick:</strong> 4.5+ inches, ideal for players with larger hands.</li>
+            </ul>
+            <p>Rule of "thumb": To determine if the grip size is correct, when holding the paddle, 
+                you should be able to place your index finger from you opposite hand in between your fingertips and your palm. 
+            </p>
+            <p>Keep in mind, handles can always be built larger by adding an overgrip, which adds 1/8 inch to the circumference of the grip. 
+                It is not unheard of to wrap a second overgrip, if you are looking for an extra thick grip and added cushioning.
+                Therefore, if you are in between sizes, it is best to go for the smaller grip. Plus smaller grips allow more range of motion in your wrist, 
+                allowing you generate more spin!
+            </p>
+
+            <h3>3. Handle Length:</h3>
+            <ul>
+                <li><strong>Short:</strong> Less than 5 inches, sweet spot is closer to the hand. 
+                Suitable for newer players, or players that like to keep one finger on the back of the paddle.</li>
+                <li><strong>Standard:</strong> 5-5.25 inches, recommended for most players.</li>
+                <li><strong>Long:</strong> 5.5+ inches, provides more reach on groundstrokes, more leverage on serves. 
+                Ideal for players with a two-handed backhand</li>
             </ul>
 
-            <h3>3. Grip Style:</h3>
+            <h3>4. Grip Style:</h3>
             <ul>
                 <li><strong>Cushioned Grip:</strong> Offers comfort during long games.</li>
                 <li><strong>Perforated Grip:</strong> Enhances moisture absorption, reducing slippage.</li>
@@ -93,13 +110,14 @@ function Guide() {
             <h3>2. Brand Reputation:</h3>
             <p>Choose reputable brands known for quality and durability.</p>
 
-            <h3>3. Paddle Care:</h3>
-            <p>Follow manufacturer guidelines for maintenance to ensure your paddle's longevity.</p>
+            <h3>3. Design/Color:</h3>
+            <p>"Look good, play good." While it shouldn't be the only or primary factor is choosing your paddle, 
+                sporting equipment that you think looks good can raise your confidence and comfortability on the court.</p>
 
             <br/>
 
             <p>Remember, the best pickleball paddle for you is a personal choice that aligns with your playing style, skill level, and preferences.</p>
-            <p>Now that you know what to look for in your next paddle, use our <Link to={"/search"}><Button>Search Tool</Button></Link> to filter based on your preferences.</p>
+            <p>Now that you know what to look for in your next paddle, use our <Link to={"/search"}><Button>Search Tool</Button></Link> to filter based on the above criteria.</p>
             <p>Or, if you still need more help determining what's best for you, take out <Link to={"/search"}><Button>Paddle Quiz</Button></Link> to get our personal recommendations.</p>
 
         </section>

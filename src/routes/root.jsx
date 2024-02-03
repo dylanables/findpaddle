@@ -18,7 +18,7 @@ function Root() {
       <Nav />
       <Container maxWidth="xl">
         <div className='hero'>
-          <h2>Find Your Next Pickleball Paddle!</h2>
+          <h1>Find Your Next Pickleball Paddle!</h1>
           <p>All the tools you need discover the best paddle to improve your game and smash the competition! All our tools are easy to use and constantly being updated as new paddles are released, allowing you to save time and money when researching.</p>
 
           <div className='center-items'>

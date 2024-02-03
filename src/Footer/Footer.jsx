@@ -10,14 +10,14 @@ const Footer = ({sidebar}) => {
     <div className={`footer ${sidebar}`}>
       <div className='top'>
         <div className='item'>
-          <h1>Tools</h1>
+          <span className='footer-title'>Tools</span>
           <span><Link to='/search'>Advanced Search</Link></span>
           <span><Link to='/quiz'>Recommendation Quiz</Link></span>
           {/*<span><Link to='/similar'>Find Similar Paddles</Link></span>*/}
           <span><Link to='/guide'>Paddle Guide</Link></span>
         </div>
         <div className='item'>
-          <h1>Get in Touch</h1>
+          <span className='footer-title'>Get in Touch</span>
           <span><Link to='/contact'>Contact Us</Link></span>
           <span><Link to='/#subscribe'>Sign Up for Mailing List</Link></span>
           <span><Link to='/contact'>Partner with Us</Link></span>
