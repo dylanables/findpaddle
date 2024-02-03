@@ -9,6 +9,7 @@ import PaddleCard from '../components/PaddleCard/PaddleCard';
 import questions from '../db/questions';
 import axios from 'axios';
 import { ScrollRestoration } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 let initialCategories = ["","","","","","","","","",""];
 
@@ -191,12 +192,13 @@ function Quiz() {
 
     }
 
-    return filteredProducts.map(({_id, img, title, star, reviews, avgPrice, bestPrice, aff_links, why_chosen, color, surface, skill, playStyle, coreThickness, paddleWeight, handleLength, paddleShape}) => (
+    return filteredProducts.map(({_id, img, title, slug, star, reviews, avgPrice, bestPrice, aff_links, why_chosen, color, surface, skill, playStyle, coreThickness, paddleWeight, handleLength, paddleShape}) => (
       <PaddleCard
       key={_id}
       id={_id}
       img={img}
       title={title}
+      slug={slug}
       star={star}
       reviews={reviews}
       avgPrice={avgPrice}
@@ -222,6 +224,19 @@ function Quiz() {
 
   return (
     <>
+      <Helmet>
+        <title>Paddle Recommendation Quiz | FindPaddle: Find your perfect pickleball paddle!</title>
+        <meta name="description" content="Find your ideal pickleball paddle effortlessly! Advanced search, personalized recommendations, and price comparisons - all at Find Paddle." />
+        <meta name="keywords" content="pickleball paddle, paddle specifications, pickleball price comparison, paddle selector, best pickleball paddle, paddle reviews" />
+        <meta property="og:title" content="Find Paddle | Find your perfect pickleball paddle!" />
+        <meta property="og:description" content="Find your ideal pickleball paddle effortlessly! Advanced search, personalized recommendations, and price comparisons - all at Find Paddle." />
+        <meta property="og:image" content="https://findpaddle.com/findpaddle.svg" />
+        <meta property="og:url" content="https://findpaddle.com" />
+        <meta name="twitter:title" content="Find Paddle | Find your perfect pickleball paddle!" />
+        <meta name="twitter:description" content="Find your ideal pickleball paddle effortlessly! Advanced search, personalized recommendations, and price comparisons - all at Find Paddle." />
+        <meta name="twitter:image" content="https://findpaddle.com/findpaddle.svg" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       <ScrollRestoration/>
       <Nav />
       <Questions currentQuestion={currentQuestion} selectedCategory={selectedCategory} handleClick={handleQuizClick} handleBackClick={handleBackClick} />
