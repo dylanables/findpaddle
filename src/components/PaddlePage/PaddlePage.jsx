@@ -1,6 +1,5 @@
 import './PaddlePage.css';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import Button from '@mui/material/Button';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { Container } from '@mui/material';
 import { addLike, removeLike } from '../../redux/likedRedux';
@@ -21,17 +20,6 @@ function PaddlePage({id, img, title, brand, color, surface, coreThickness, handl
   }, [likes, id]);
 
   const dispatch = useDispatch();
-
-  const affs = [];
-  aff_links?.map((aff) => {
-    affs.push(
-      <a href={aff.link} target="_blank" rel="noreferrer">
-        <Button variant="contained" endIcon={<OpenInNewIcon />}>
-          Buy @ {aff.retailer}
-        </Button>
-      </a>
-    );
-  });
   
   let coreThicknessText = ""
   for (let i = 0; i < coreThickness?.length; i++) {
@@ -55,24 +43,48 @@ function PaddlePage({id, img, title, brand, color, surface, coreThickness, handl
   
   return (
   <Container>
-    <section className='page'>
-      <h2 className='page-title'>
-        {title}
-      </h2>
-      <div className='heart-icon'>
-        <FavoriteIcon sx={{ color: isLiked ? red[500] : grey[400]}} onClick={()=>handleLike()} />
-      </div>
-      <img src={img} className='page-image' alt={title} />
-      <section className='page-info'>
-          <p>Surface: {surface}</p>
-          <p>Weight: {weightText}</p>
-          <p>Core Thickness: {coreThicknessText}</p>
-          <p>Handle Length: {handleLength} in</p>
+    <div className='page'>
+      <section className='paddle-info'>
+        <h2 className='page-title'>
+          {title}
+        </h2>
+        <div className='heart-icon'>
+          <FavoriteIcon sx={{ color: isLiked ? red[500] : grey[400]}} onClick={()=>handleLike()} />
+        </div>
+        <img src={img} className='page-image' alt={title} />
+        <section className='page-info'>
+            <p>Surface: {surface}</p>
+            <p>Weight: {weightText}</p>
+            <p>Core Thickness: {coreThicknessText}</p>
+            <p>Handle Length: {handleLength} in</p>
+        </section>
       </section>
-      <section className='page-links'>
-        {affs}
+      <section className='paddle-retailers'>
+        <h2>Retailers</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Retailer</th>
+              <th>Price</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+          {
+            aff_links?.map((aff) => {
+              return (
+              <tr>
+                <td>{aff.retailer}</td>
+                <td>{aff.price ? aff.price : "Click link for price"}</td>
+                <td><a href={aff.link} target="_blank" rel="noreferrer"><OpenInNewIcon /></a></td>
+              </tr>
+              );
+            })
+          }
+          </tbody>
+        </table>
       </section>
-    </section>
+    </div>
   </Container>
   );
 }
