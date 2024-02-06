@@ -57,6 +57,7 @@ function Paddle() {
             id={paddle._id} //change
             img={paddle.img}
             title={paddle.title}
+            slug={paddle.slug}
             brand={paddle.brand}
             color={paddle.color}
             surface={paddle.surface}

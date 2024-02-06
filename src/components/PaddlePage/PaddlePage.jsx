@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 import { grey, red } from '@mui/material/colors';
 
 
-function PaddlePage({id, img, title, brand, color, surface, coreThickness, handleLength, paddleWeight, paddleShape, aff_links, playStyle, bestPrice}) {
+function PaddlePage({id, img, title, slug, brand, color, surface, coreThickness, handleLength, paddleWeight, paddleShape, aff_links, playStyle, bestPrice}) {
   const likes = (useSelector(state=>state.liked));
 
   const [isLiked, setIsLiked] = useState(likes.paddles.find((like) => like.id === id));
