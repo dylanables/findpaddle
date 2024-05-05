@@ -41,4 +41,8 @@ th, td {
     text-align: left;
 }
 
+.helpPopup {
+    color: #000;
+}
+
 .review {width: 100%;}

@@ -34,9 +34,9 @@ const pages = [
 ];
 
 
-const Nav = () => {
+const Nav = ({tool}) => {
   const [anchorElNav, setAnchorElNav] = useState(null);
-  const [openLikes, setOpenLikes] = useState(false);
+  const [openLikes, setOpenLikes] = useState(tool === "compare" ? true: false);
 
   const numLikes = useSelector(state=>state.liked.quantity);
   const likes = useSelector(state=>state.liked);
@@ -198,7 +198,7 @@ const Nav = () => {
           </Box>
         </Toolbar>
       </Container>
-      {openLikes && <Liked/>}
+      {openLikes && <Liked tool={tool} />}
     </AppBar>
   );
 }

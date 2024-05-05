@@ -7,6 +7,10 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from "react-redux";
 import { useState, useEffect } from 'react';
 import { grey, red } from '@mui/material/colors';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
+import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 
 
 function PaddlePage({id, img, title, slug, brand, color, surface, coreThickness, handleLength, paddleWeight, paddleShape, aff_links, playStyle, bestPrice, swingWeight, twistWeight, thermoformed}) {
@@ -40,6 +44,18 @@ function PaddlePage({id, img, title, slug, brand, color, surface, coreThickness,
       setIsLiked((prevState) => !prevState);
     }
   }
+
+  const HtmlTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+  ))(({ theme }) => ({
+    [`& .${tooltipClasses.tooltip}`]: {
+      backgroundColor: '#f5f5f9',
+      color: 'rgba(0, 0, 0, 0.87)',
+      maxWidth: 220,
+      fontSize: theme.typography.pxToRem(12),
+      border: '1px solid #dadde9',
+    },
+  }));
   
   return (
   <Container>
@@ -54,15 +70,35 @@ function PaddlePage({id, img, title, slug, brand, color, surface, coreThickness,
         <img src={img} className='page-image' alt={title} />
       </section>
       <section className='paddle-info'>
-        <h2>Attributes</h2><br/><br/>
+        <h2>Specs</h2><br/><br/>
         <p>Shape: {paddleShape}</p>
         <p>Play Style: {playStyle}</p>
         <p>Surface: {surface}</p>
         <p>Core Thickness: {coreThicknessText}</p>
         <p>Handle Length: {handleLength} in</p>
         <p>Static Weight: {weightText}</p>
-        <p>Swingweight: {swingWeight}</p>
-        <p>Twistweight: {twistWeight}</p>
+        <p>
+          <HtmlTooltip
+            title={
+              <>
+                <b>{"Swingweight"}</b> {"is a measure of how heavy the paddle feels when you swing it. A higher swingweight means more weight is distributed in the head (heavy-heavy) and will feel heavier to swing. The trade-off with higher/lower swingweignt is swing speed vs power. Typically ranges from 100 to 140."}
+              </>
+            }
+          >
+            <span className='helpPopup'>Swingweight: {swingWeight}</span>
+          </HtmlTooltip>
+        </p>
+        <p>
+          <HtmlTooltip
+            title={
+              <>
+                <b>{"Twistweight"}</b> {"is a measure of the paddle's resistance to twisting on off-center shots. A higher twistweight indicates that the paddle has a larger sweet spot and is more forgiving. Ranges from 5 to 8."}
+              </>
+            }
+          >
+            <span className='helpPopup'>Twistweight: {twistWeight}</span>
+          </HtmlTooltip>
+        </p>
         <p>Construction: {thermoformed ? "Thermoformed" : ""}</p>
       </section>
       <section className='paddle-retailers'>

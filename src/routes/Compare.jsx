@@ -17,6 +17,9 @@ import { useSearchParams } from 'react-router-dom';
 import SearchBar from '../components/SearchBar/SearchBar';
 import { Button } from '@mui/material';
 import Container from '@mui/material/Container';
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
+import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 
 
 function Compare() {
@@ -86,6 +89,18 @@ function Compare() {
 
   const tool = "compare";
 
+  const HtmlTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+  ))(({ theme }) => ({
+    [`& .${tooltipClasses.tooltip}`]: {
+      backgroundColor: '#f5f5f9',
+      color: 'rgba(0, 0, 0, 0.87)',
+      maxWidth: 220,
+      fontSize: theme.typography.pxToRem(12),
+      border: '1px solid #dadde9',
+    },
+  }));
+
   return (
     <>
         <Helmet>
@@ -102,7 +117,7 @@ function Compare() {
             <meta name="twitter:card" content="summary_large_image" />
         </Helmet>
         <ScrollRestoration/>
-        <Nav />
+        <Nav tool={"compare"} />
         <div class="results">
             <Container maxWidth="xl">
                 <div className='compare'>
@@ -182,7 +197,18 @@ function Compare() {
                             </tr>
 
                             <tr class="tableBodyRow">
-                                <th scope="row" class="rowHeader">Swing Weight</th>
+                                <th scope="row" class="rowHeader">
+                                <HtmlTooltip
+                                    placement="top"
+                                    title={
+                                    <>
+                                        <b>{"Swingweight"}</b> {"is a measure of how heavy the paddle feels when you swing it. A higher swingweight means more weight is distributed in the head (heavy-heavy) and will feel heavier to swing. The trade-off with higher/lower swingweignt is swing speed vs power. Typically ranges from 100 to 140."}
+                                    </>
+                                    }
+                                >
+                                    <span className='helpPopup'>Swing Weight</span>
+                                </HtmlTooltip>
+                                </th>
                                 {compare?.map((item) => {
                                     return (
                                         <td className='compareData'>{item?.swingWeight || ""}</td>
@@ -191,7 +217,17 @@ function Compare() {
                             </tr>
 
                             <tr class="tableBodyRow">
-                                <th scope="row" class="rowHeader">Twist Weight</th>
+                                <th scope="row" class="rowHeader">
+                                <HtmlTooltip
+                                    title={
+                                    <>
+                                        <b>{"Twistweight"}</b> {"is a measure of the paddle's resistance to twisting on off-center shots. A higher twistweight indicates that the paddle has a larger sweet spot and is more forgiving. Ranges from 5 to 8."}
+                                    </>
+                                    }
+                                >
+                                    <span className='helpPopup'>Twist Weight</span>
+                                </HtmlTooltip>
+                                </th>
                                 {compare?.map((item) => {
                                     return (
                                         <td className='compareData'>{item?.twistWeight || ""}</td>
