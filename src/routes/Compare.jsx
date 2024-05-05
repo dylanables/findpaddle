@@ -16,6 +16,7 @@ import { useSelector } from "react-redux";
 import { useSearchParams } from 'react-router-dom';
 import SearchBar from '../components/SearchBar/SearchBar';
 import { Button } from '@mui/material';
+import Container from '@mui/material/Container';
 
 
 function Compare() {
@@ -35,9 +36,11 @@ function Compare() {
         setPaddles(res.data);
         if (searchParams.get("liked") === "true") {
             let likedPaddles = [];
+            console.log("liked true");
             likes.paddles.map((item) => {
                 likedPaddles.push(res.data.find((paddle) => paddle._id === item.id));
             });
+            console.log("likedPaddles", likedPaddles);
             setCompare(likedPaddles);
         }
       } catch(err) {
@@ -101,153 +104,156 @@ function Compare() {
         <ScrollRestoration/>
         <Nav />
         <div class="results">
+            <Container maxWidth="xl">
+                <div className='compare'>
+                    <SearchBar use={tool} handleCompare={handleNewCompare} />
 
-            <SearchBar use={tool} handleCompare={handleNewCompare} />
-
-            {compare?.length > 0 ? 
-            <>
-            <div class="tableContainer">
-                <table>
-                    <thead>
-                    <tr class="columnHeaders">
-                        <th class="columnHeader emptyCell" title="Empty cell"></th>
-                        {compare?.map((item) => {
-                            return (
-                                <th scope="col" class="columnHeader">
-                                    <img src={item.img} height={100} width={100}/><br/>
-                                    {item.title}
-                                </th>
-                            )
-                        })}
-                    </tr>
-                    </thead>
-                    <tbody>
-                    
-                    <tr class="tableBodyRow">
-                        <th scope="row" class="rowHeader">Shape</th>
-                        {compare?.map((item) => {
-                            return (
-                                <td>{item.paddleShape}</td>
-                            )
-                        })}
-                    </tr>
-
-                    <tr class="tableBodyRow">
-                        <th scope="row" class="rowHeader">Play Style</th>
-                        {compare?.map((item) => {
-                            return (
-                                <td>{item.playStyle}</td>
-                            )
-                        })}
-                    </tr>
-
-                    <tr class="tableBodyRow">
-                        <th scope="row" class="rowHeader">Surface Material</th>
-                        {compare?.map((item) => {
-                            return (
-                                <td>{item.surface}</td>
-                            )
-                        })}
-                    </tr>
-                
-                    <tr class="tableBodyRow">
-                        <th scope="row" class="rowHeader">Static Weight</th>
-                        {compare?.map((item) => {
-                            return (
-                                <td>{item.paddleWeight.join(" / ")} oz</td>
-                            )
-                        })}
-                    </tr>
-
-                    <tr class="tableBodyRow">
-                        <th scope="row" class="rowHeader">Core Thickness</th>
-                        {compare?.map((item) => {
-                            return (
-                                <td>{item.coreThickness.join(" / ")} mm</td>
-                            )
-                        })}
-                    </tr>
-
-                    <tr class="tableBodyRow">
-                        <th scope="row" class="rowHeader">Handle Length</th>
-                        {compare?.map((item) => {
-                            return (
-                                <td>{item.handleLength} in</td>
-                            )
-                        })}
-                    </tr>
-
-                    <tr class="tableBodyRow">
-                        <th scope="row" class="rowHeader">Swing Weight</th>
-                        {compare?.map((item) => {
-                            return (
-                                <td>{item.swingWeight || "N/A"}</td>
-                            )
-                        })}
-                    </tr>
-
-                    <tr class="tableBodyRow">
-                        <th scope="row" class="rowHeader">Twist Weight</th>
-                        {compare?.map((item) => {
-                            return (
-                                <td>{item.twistWeight || "N/A"}</td>
-                            )
-                        })}
-                    </tr>
-
-                    <tr class="tableBodyRow">
-                        <th scope="row" class="rowHeader">Thermoformed</th>
-                        {compare?.map((item) => {
-                                if (item.thermoformed !== undefined && item.thermoformed !== '') {
-                                    if (item.thermoformed) {
-                                        return (
-                                        <td>
-                                            <span title="Thermoformed" class="featureCheck">✔</span>
-                                        </td>
-                                        )
-                                    } else {
-                                        return (
-                                        <td>
-                                            <span title="Not thermoformed" class="featureX">✘</span>
-                                        </td>
-                                        )
-                                    }
-                                } else {
+                    {compare?.length > 0 ? 
+                    <>
+                    <div class="tableContainer">
+                        <table className='compareTable'>
+                            <thead>
+                            <tr class="columnHeaders">
+                                <th class="rowHeader emptyCell" title="Empty cell"></th>
+                                {compare?.map((item) => {
                                     return (
-                                    <td>{"N/A"}</td>
+                                        <th scope="col" class="columnHeader">
+                                            <img src={item?.img} height={100} width={100}/><br/>
+                                            {item?.title}
+                                        </th>
                                     )
-                                }
-                        })}
-                    </tr>
+                                })}
+                            </tr>
+                            </thead>
+                            <tbody>
+                            
+                            <tr class="tableBodyRow">
+                                <th scope="row" class="rowHeader">Shape</th>
+                                {compare?.map((item) => {
+                                    return (
+                                        <td className='compareData'>{item?.paddleShape}</td>
+                                    )
+                                })}
+                            </tr>
 
-                    <tr class="tableBodyRow">
-                        <th scope="row" class="rowHeader">Best Price</th>
-                        {compare?.map((item) => {
-                            return (
-                                <td>${item.bestPrice}</td>
-                            )
-                        })}
-                    </tr>
+                            <tr class="tableBodyRow">
+                                <th scope="row" class="rowHeader">Play Style</th>
+                                {compare?.map((item) => {
+                                    return (
+                                        <td className='compareData'>{item?.playStyle}</td>
+                                    )
+                                })}
+                            </tr>
 
-                    <tr class="tableBodyRow">
-                        <th scope="row" class="rowHeader"></th>
-                        {compare?.map((item) => {
-                            return (
-                                <td><Link to={`/paddle/${item.slug}`}><Button variant="contained">View</Button></Link></td>
-                            )
-                        })}
-                    </tr>
+                            <tr class="tableBodyRow">
+                                <th scope="row" class="rowHeader">Surface Material</th>
+                                {compare?.map((item) => {
+                                    return (
+                                        <td className='compareData'>{item?.surface}</td>
+                                    )
+                                })}
+                            </tr>
+                        
+                            <tr class="tableBodyRow">
+                                <th scope="row" class="rowHeader">Static Weight</th>
+                                {compare?.map((item) => {
+                                    return (
+                                        <td className='compareData'>{item?.paddleWeight.join(" / ")} oz</td>
+                                    )
+                                })}
+                            </tr>
+
+                            <tr class="tableBodyRow">
+                                <th scope="row" class="rowHeader">Core Thickness</th>
+                                {compare?.map((item) => {
+                                    return (
+                                        <td className='compareData'>{item?.coreThickness.join(" / ")} mm</td>
+                                    )
+                                })}
+                            </tr>
+
+                            <tr class="tableBodyRow">
+                                <th scope="row" class="rowHeader">Handle Length</th>
+                                {compare?.map((item) => {
+                                    return (
+                                        <td className='compareData'>{item?.handleLength} in</td>
+                                    )
+                                })}
+                            </tr>
+
+                            <tr class="tableBodyRow">
+                                <th scope="row" class="rowHeader">Swing Weight</th>
+                                {compare?.map((item) => {
+                                    return (
+                                        <td className='compareData'>{item?.swingWeight || ""}</td>
+                                    )
+                                })}
+                            </tr>
+
+                            <tr class="tableBodyRow">
+                                <th scope="row" class="rowHeader">Twist Weight</th>
+                                {compare?.map((item) => {
+                                    return (
+                                        <td className='compareData'>{item?.twistWeight || ""}</td>
+                                    )
+                                })}
+                            </tr>
+
+                            <tr class="tableBodyRow">
+                                <th scope="row" class="rowHeader">Thermoformed</th>
+                                {compare?.map((item) => {
+                                        if (item?.thermoformed !== undefined && item?.thermoformed !== '') {
+                                            if (item?.thermoformed) {
+                                                return (
+                                                <td className='compareData'>
+                                                    <span title="Thermoformed" class="featureCheck">✔</span>
+                                                </td>
+                                                )
+                                            } else {
+                                                return (
+                                                <td className='compareData'>
+                                                    <span title="Not thermoformed" class="featureX">✘</span>
+                                                </td>
+                                                )
+                                            }
+                                        } else {
+                                            return (
+                                            <td className='compareData'>{""}</td>
+                                            )
+                                        }
+                                })}
+                            </tr>
+
+                            <tr class="tableBodyRow">
+                                <th scope="row" class="rowHeader">Best Price</th>
+                                {compare?.map((item) => {
+                                    return (
+                                        <td className='compareData'>${item?.bestPrice}</td>
+                                    )
+                                })}
+                            </tr>
+
+                            <tr class="tableBodyRow">
+                                <th scope="row" class="rowHeader emptyCell" title="Empty Cell"></th>
+                                {compare?.map((item) => {
+                                    return (
+                                        <td className='compareData'><Link to={`/paddle/${item?.slug}`}><Button variant="contained">View</Button></Link></td>
+                                    )
+                                })}
+                            </tr>
 
 
-                    </tbody>
-                </table>
-            </div>
-            </>
-            : "Select 2 or more paddles to compare"
-            }
+                            </tbody>
+                        </table>
+                    </div>
+                    </>
+                    : <p className='nothingToCompare'>{"Select 2 or more paddles to compare"}</p>
+                    }
+                </div>
+            </Container>
         </div>
 
-      <Footer sidebar={''} />
+        <Footer sidebar={''} />
     </>
   );
 }

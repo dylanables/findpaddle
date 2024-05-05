@@ -1,8 +1,65 @@
 .results {
-    display: block;
+    display: flex;
     z-index: -2;
     background-color: #f0f0f0;
     padding-top: 90px;
+    min-height: 100vh;
+    justify-content: center;
+}
+
+.compare {
+  padding: 30px;
+  width: 100vw;
+}
+
+.tableContainer {
+  margin-top: 15px;
+  position: relative;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.nothingToCompare {
+  margin-top: 15px;
+}
+
+.compareTable {
+  overflow-x: scroll;
+}
+
+.rowHeader {
+  position: -webkit-sticky;
+  position: sticky;
+  text-align: right;
+  width: fit-content;
+  left: 0px;
+  background-color: #fff;
+  z-index: 999;
+}
+
+.columnHeader {
+  background-color: #fff;
+  width: 150px;
+  min-width: 150px;
+  max-width: 250px;
+  text-wrap: wrap;
+  text-align: center;
+  color: #000;
+}
+
+.emptyCell {
+  background-color: #f0f0f0;
+}
+
+.compareData {
+  width: 150px;
+  min-width: 150px;
+  max-width: 150px;
+  left: 100px;
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  z-index: 1;
+  text-align: center;
 }
 
 @media screen and (max-width: 700px) {

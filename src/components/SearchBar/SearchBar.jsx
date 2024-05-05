@@ -5,12 +5,13 @@ import Autocomplete from '@mui/material/Autocomplete';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './SearchBar.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import handleNewCompare from '../../routes/Compare';
 
 function SearchBar({use, handleCompare}) {
 
   const[paddles, setPaddles] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(()=>{
     const getPaddles = async ()=>{
@@ -42,14 +43,14 @@ function SearchBar({use, handleCompare}) {
       autoHighlight
       onChange={(e, option) => {
         if (use === "search" && option.slug) {
-            window.location.href = `paddle/${option.slug}`;
+          navigate(`paddle/${option.slug}`);
         } else if (use === "compare" && option) {
           handleCompare(option);
         }
       }}
       onClick={(e, option) => {
         if (use === "search" && option.slug) {
-            window.location.href = `paddle/${option.slug}`;
+          navigate(`paddle/${option.slug}`);
         } else if (use === "compare" && option) {
           handleCompare(option);
         }

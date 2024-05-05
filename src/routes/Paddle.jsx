@@ -68,6 +68,9 @@ function Paddle() {
             playStyle={paddle.playStyle}
             bestPrice={paddle.bestPrice}
             aff_links={paddle.aff_links}
+            twistWeight={paddle.twistWeight}
+            swingWeight={paddle.swingWeight}
+            thermoformed={paddle.thermoformed}
           />
       }
       <Footer />
