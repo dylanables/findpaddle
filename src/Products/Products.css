@@ -1,43 +1,43 @@
 .results {
-    display: block;
-    z-index: -2;
-    background-color: #f0f0f0;
+  display: block;
+  z-index: -2;
+  background-color: #f0f0f0;
 }
 
 #quiz-results-heading {
-  display: none;
+display: none;
 
 }
 
 .search {
-  padding-left: 25rem;
-  padding-top: 90px;
+padding-left: 25rem;
+padding-top: 90px;
 }
 
 .quiz {
-  padding-left: 0;
-  padding-top: 30px;
+padding-left: 0;
+padding-top: 30px;
 }
 
 .card-container {
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 1rem;
+display: flex;
+flex-wrap: wrap;
+padding-top: 1rem;
 }
 
 @media screen and (max-width: 700px) {
-  .results {
-    width: 100%;
-    height: auto;
-    padding-left: 0rem;
-  }
-  .search {
-    padding-top: 30px;
-  }
-  .sidebar card {
-    float: middle;
-  }
-  div.content {
-    margin-left: 0;
-  }
+.results {
+  width: 100%;
+  height: auto;
+  padding-left: 0rem;
+}
+.search {
+  padding-top: 30px;
+}
+.sidebar card {
+  float: middle;
+}
+div.content {
+  margin-left: 0;
+}
 }

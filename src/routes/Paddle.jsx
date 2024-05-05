@@ -37,7 +37,7 @@ function Paddle() {
   return (
     <>
       <Helmet>
-        <title>{paddle.title} | FindPaddle: Find your perfect pickleball paddle!</title>
+        <title>{paddle.title ? paddle.title : ""} | FindPaddle: Find your perfect pickleball paddle!</title>
         <meta name="description" content="Find your ideal pickleball paddle effortlessly! Advanced search, personalized recommendations, and price comparisons - all at Find Paddle." />
         <meta name="keywords" content="pickleball paddle, paddle specifications, pickleball price comparison, paddle selector, best pickleball paddle, paddle reviews" />
         <meta property="og:title" content="Find Paddle | Find your perfect pickleball paddle!" />

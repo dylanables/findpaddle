@@ -23,6 +23,9 @@ function Liked() {
           </Link>
         )) : <p>{'No saved paddles'}</p>
         }
+        <Link to={`/compare?liked=true`}>
+          <button>Compare Saved Paddles</button>
+        </Link>
     </div>
   );
 }

@@ -27,10 +27,10 @@ import { useSelector } from "react-redux";
 
 
 const pages = [
-  {text: 'Advanced Search', href: '/search'}, 
-  {text: 'Recommendation Quiz', href: '/quiz'}, 
-  {text: 'Paddle Guide', href: '/guide'}, 
-  //{text: 'Find Similar', href: '/similar'},
+  {text: 'Advanced Search', href: '/search'},
+  {text: 'Recommendation Quiz', href: '/quiz'},
+  {text: 'Compare', href: '/compare'},
+  {text: 'Paddle Guide', href: '/guide'},
 ];
 
 

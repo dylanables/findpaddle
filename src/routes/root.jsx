@@ -9,6 +9,7 @@ import Container from '@mui/material/Container';
 import { Outlet, Link, ScrollRestoration } from "react-router-dom";
 import Subscribe from '../components/Subscribe/Subscribe';
 import { Helmet } from 'react-helmet';
+import SearchBar from '../components/SearchBar/SearchBar';
 
 
 function Root() {
@@ -47,17 +48,18 @@ function Root() {
               <Link to={'/quiz'}><Button size="large" variant="outlined" endIcon={<QuizIcon />}>Take Quiz</Button></Link>
             </div>
             <div className='tool'>
+              <h3>Compare Paddles</h3>
+              <p>Deciding between a few different paddles? Compare paddles side-by-side.</p>
+              <Link to={'/compare'}><Button size="large" variant="outlined" endIcon={<CompareArrowsIcon />}>Compare</Button></Link>
+            </div>
+            <div className='tool'>
               <h3>Paddle Guide</h3>
               <p>Learn all about what makes each paddle unique, and how to determine which specifications will best suit your game.</p>
               <Link to={'/guide'}><Button size="large" variant="outlined" endIcon={<SportsTennisIcon />}>See Guide</Button></Link>
             </div>
-            {/*
-            <div className='tool'>
-              <h3>Find Similar Paddles</h3>
-              <p>Have a paddle you love but it's out of stock or discontinued? Find similar to the paddle with this tool.</p>
-              <Link to={'/similar'}><Button size="large" variant="outlined" endIcon={<CompareArrowsIcon />}>Find Similar</Button></Link>
-            </div>
-            */}
+          </div>
+          <div className='center-items'>
+            <SearchBar use="search" />
           </div>
 
         </div>

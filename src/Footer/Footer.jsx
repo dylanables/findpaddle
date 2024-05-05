@@ -13,7 +13,7 @@ const Footer = ({sidebar}) => {
           <span className='footer-title'>Tools</span>
           <span><Link to='/search'>Advanced Search</Link></span>
           <span><Link to='/quiz'>Recommendation Quiz</Link></span>
-          {/*<span><Link to='/similar'>Find Similar Paddles</Link></span>*/}
+          <span><Link to='/compare'>Compare Paddles</Link></span>
           <span><Link to='/guide'>Paddle Guide</Link></span>
         </div>
         <div className='item'>
@@ -25,7 +25,7 @@ const Footer = ({sidebar}) => {
       </div>
       <div className='bottom'>
           <span><img src='/findpaddle.svg' alt="FindPaddle" className='logo' /> FindPaddle.com</span>
-          <span className='copyright'>© Copyright 2023. All rights reserved</span>
+          <span className='copyright'>© Copyright 2024. All rights reserved</span>
       </div>
     </div>
   </Container>

@@ -1,0 +1,12 @@
+.guide-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.guide-list > li {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    width: 30%;
+}
